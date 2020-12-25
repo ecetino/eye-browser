@@ -8,9 +8,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: 'Home',
+      currentPage: '',
     }
     this.setPage = this.setPage.bind(this);
+  }
+
+  componentDidMount () {
+    this.setState({
+      currentPage: 'Home',
+    })
   }
 
   setPage(page) {

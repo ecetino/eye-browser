@@ -7,7 +7,7 @@ class KeyboardPractice extends React.Component {
     super(props);
     this.state = {
       startPhrase: 'Try Typing',
-      practiceWord: 'LazyEye Rocks',
+      practiceWord: 'lazyeye rocks',
       currentInputValue: '',
       correct: 'no entry yet',
       streak: 0,
@@ -19,7 +19,7 @@ class KeyboardPractice extends React.Component {
   }
 
   genNewPracticeWord () {
-    const newWord = faker.commerce.department();
+    const newWord = faker.commerce.department().toLowerCase();
     this.setState({
       startPhrase: 'Now try',
       practiceWord: newWord,

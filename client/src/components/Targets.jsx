@@ -5,7 +5,10 @@ const targets = (props) => {
     return (
       <div>
         {!props.completed &&
-        <button onClick={props.reset}>restart</button>
+        <div>
+          <button onClick={props.reset}>restart</button>
+          <div>{props.time} secs</div>
+        </div>
         }
         <div>
           {props.t1 &&

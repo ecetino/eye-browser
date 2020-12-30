@@ -12,18 +12,33 @@ class TargetPractice extends React.Component {
       t3: true,
       t4: true,
       t5: true,
-      targetsChecked: 0
+      targetsChecked: 0,
+      time: 0,
     }
     this.setReady = this.setReady.bind(this);
     this.setCompleted = this.setCompleted.bind(this);
     this.reset = this.reset.bind(this);
     this.toggleTarget = this.toggleTarget.bind(this);
+    this.startTimer = this.startTimer.bind(this);
   }
 
   setReady () {
     this.setState({
       ready: !this.state.ready
     })
+    this.startTimer();
+  }
+
+  startTimer () {
+    this.timer = setInterval(() => {
+      this.setState({
+        time: this.state.time + 1
+      })
+    }, 1000)
+  }
+
+  stopTimer () {
+    clearInterval(this.timer);
   }
 
   setCompleted () {
@@ -40,8 +55,11 @@ class TargetPractice extends React.Component {
       t4: true,
       t5: true,
       targetsChecked: 0,
-      completed: false
+      completed: false,
+      time: 0
     })
+    this.stopTimer();
+    this.startTimer();
   }
 
   toggleTarget (target) {
@@ -51,6 +69,7 @@ class TargetPractice extends React.Component {
     })
     if (this.state.targetsChecked === 4) {
       this.setCompleted();
+      this.stopTimer();
     }
   }
 
@@ -64,11 +83,11 @@ class TargetPractice extends React.Component {
         }
         {this.state.completed &&
         <div>
-          <h2>Nice job! Completed in y seconds</h2>
+          <h2>Nice job! Completed in {this.state.time} seconds</h2>
           <button onClick={this.reset}>Try again?</button>
         </div>
         }
-        <Targets ready={this.state.ready} reset={this.reset} t1={this.state.t1} t2={this.state.t2} t3={this.state.t3} t4={this.state.t4} t5={this.state.t5} targetsChecked={this.state.targetsChecked} toggleTarget={this.toggleTarget} completed={this.state.completed}></Targets>
+        <Targets startTimer={this.startTimer} ready={this.state.ready} reset={this.reset} t1={this.state.t1} t2={this.state.t2} t3={this.state.t3} t4={this.state.t4} t5={this.state.t5} targetsChecked={this.state.targetsChecked} toggleTarget={this.toggleTarget} completed={this.state.completed} time={this.state.time}></Targets>
       </div>
     )
   }

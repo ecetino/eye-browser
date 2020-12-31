@@ -15,7 +15,7 @@ class App extends React.Component {
 
   componentDidMount () {
     this.setState({
-      currentPage: 'TargetPractice',
+      currentPage: 'Home',
     })
   }
 

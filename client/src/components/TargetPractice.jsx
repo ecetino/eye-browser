@@ -20,6 +20,7 @@ class TargetPractice extends React.Component {
     this.reset = this.reset.bind(this);
     this.toggleTarget = this.toggleTarget.bind(this);
     this.startTimer = this.startTimer.bind(this);
+    this.stopTimer = this.stopTimer.bind(this);
   }
 
   setReady () {

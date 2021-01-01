@@ -1,4 +1,5 @@
 import React from 'react';
+import target from '../images/target.png';
 
 const targets = (props) => {
   if (props.ready) {
@@ -12,19 +13,19 @@ const targets = (props) => {
         }
         <div>
           {props.t1 &&
-          <button name='t1' style={{'backgroundColor': 'white', 'border': 'none'}}  onClick={() => {props.toggleTarget('t1')}}><img src='https://lazy-eye-trainer.s3-us-west-1.amazonaws.com/Target.png' style={{'height': '150px'}}/></button>
+          <button name='t1' style={{'backgroundColor': '#404040', 'border': 'none'}}  onClick={() => {props.toggleTarget('t1')}}><img src={target} style={{'height': '150px'}}/></button>
           }
           {props.t2 &&
-          <button name='t2' style={{'backgroundColor': 'white', 'border': 'none'}} onClick={() => {props.toggleTarget('t2')}}><img src='https://lazy-eye-trainer.s3-us-west-1.amazonaws.com/Target.png' style={{'height': '150px'}}/></button>
+          <button name='t2' style={{'backgroundColor': '#404040', 'border': 'none'}} onClick={() => {props.toggleTarget('t2')}}><img src='https://lazy-eye-trainer.s3-us-west-1.amazonaws.com/Target.png' style={{'height': '150px'}}/></button>
           }
           {props.t3 &&
-          <button name='t3' style={{'backgroundColor': 'white', 'border': 'none'}} onClick={() => {props.toggleTarget('t3')}}><img src='https://lazy-eye-trainer.s3-us-west-1.amazonaws.com/Target.png' style={{'height': '150px'}}/></button>
+          <button name='t3' style={{'backgroundColor': '#404040', 'border': 'none'}} onClick={() => {props.toggleTarget('t3')}}><img src='https://lazy-eye-trainer.s3-us-west-1.amazonaws.com/Target.png' style={{'height': '150px'}}/></button>
           }
           {props.t4 &&
-          <button name='t4' style={{'backgroundColor': 'white', 'border': 'none'}} onClick={() => {props.toggleTarget('t4')}}><img src='https://lazy-eye-trainer.s3-us-west-1.amazonaws.com/Target.png' style={{'height': '150px'}}/></button>
+          <button name='t4' style={{'backgroundColor': '#404040', 'border': 'none'}} onClick={() => {props.toggleTarget('t4')}}><img src='https://lazy-eye-trainer.s3-us-west-1.amazonaws.com/Target.png' style={{'height': '150px'}}/></button>
           }
           {props.t5 &&
-          <button name='t5' style={{'backgroundColor': 'white', 'border': 'none'}} onClick={() => {props.toggleTarget('t5')}}><img src='https://lazy-eye-trainer.s3-us-west-1.amazonaws.com/Target.png' style={{'height': '150px'}}/></button>
+          <button name='t5' style={{'backgroundColor': '#404040', 'border': 'none'}} onClick={() => {props.toggleTarget('t5')}}><img src='https://lazy-eye-trainer.s3-us-west-1.amazonaws.com/Target.png' style={{'height': '150px'}}/></button>
           }
         </div>
       </div>

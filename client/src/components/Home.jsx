@@ -3,7 +3,9 @@ import BrowserPractice from './BrowserPractice';
 import KeyboardPractice from './KeyboardPractice';
 import TargetPractice from './TargetPractice';
 import Login from './Login';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import eye from '../images/eye.png';
+
+import { Button, Container } from 'react-bootstrap';
 
 class Home extends React.Component {
   constructor(props) {
@@ -22,20 +24,21 @@ class Home extends React.Component {
 
   render () {
     return (
-      <div style={{'backgroundColor': 'grey'}}>
-        <h1>Welcome to Lazy Eye Trainer</h1>
+      <Container fluid>
+        <img src={eye} style={{'height': '400px'}} />
+        <h1 class='display-1'>Welcome to Lazy Eye Trainer</h1>
         {!this.state.loggedIn &&
         <Login setLoggedIn={this.setLoggedIn}></Login>
         }
         {this.state.loggedIn &&
         <div>
           <h4>Please select a training module</h4>
-          <button onClick={this.props.setPage.bind(this, 'BrowserPractice')}>Browser Practice</button>
-          <button onClick={() => {this.props.setPage('KeyboardPractice')}}>Keyboard Practice</button>
-          <button onClick={() => {this.props.setPage('TargetPractice')}}>Target Practice</button>
+          <Button onClick={this.props.setPage.bind(this, 'BrowserPractice')}>Browser Practice</Button>
+          <Button onClick={() => {this.props.setPage('KeyboardPractice')}}>Keyboard Practice</Button>
+          <Button onClick={() => {this.props.setPage('TargetPractice')}}>Target Practice</Button>
         </div>
         }
-      </div>
+      </Container>
     )
   }
 }

@@ -3,6 +3,7 @@ import Home from './Home';
 import BrowserPractice from './BrowserPractice';
 import KeyboardPractice from './KeyboardPractice';
 import TargetPractice from './TargetPractice';
+import '../style.scss';
 
 class App extends React.Component {
   constructor(props) {

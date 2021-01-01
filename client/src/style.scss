@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+
+$primary: #FFCE2B;
+$body-bg: #42413D;
+$body-color: #FFF;
+$font-family-sans-serif: 'Playfair Display SC';
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1700px);
+$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1640px);
+
+@import '~bootstrap/scss/bootstrap.scss';

@@ -5,8 +5,6 @@ import TargetPractice from './TargetPractice';
 import Login from './Login';
 import eye from '../images/eye.png';
 
-import { Button, Container } from 'react-bootstrap';
-
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -24,23 +22,50 @@ class Home extends React.Component {
 
   render () {
     return (
-      <Container fluid>
-        <img src={eye} style={{'height': '400px'}} />
-        <h1 class='display-1'>Welcome to Lazy Eye Trainer</h1>
+      <div className='container-fluid text-center'>
+        <img src={eye} className='img-fluid' style={eyeImageStyle}/>
+        <h1 className='display-2' style={welcomeStyle}>Welcome to Lazy Eye Trainer</h1>
         {!this.state.loggedIn &&
         <Login setLoggedIn={this.setLoggedIn}></Login>
         }
         {this.state.loggedIn &&
-        <div>
-          <h4>Please select a training module</h4>
-          <Button onClick={this.props.setPage.bind(this, 'BrowserPractice')}>Browser Practice</Button>
-          <Button onClick={() => {this.props.setPage('KeyboardPractice')}}>Keyboard Practice</Button>
-          <Button onClick={() => {this.props.setPage('TargetPractice')}}>Target Practice</Button>
+        <div >
+          <h2 style={moduleStyle}>Please select a training module</h2>
+          <div >
+            <button style={moduleButtonStyle} type='button' className='btn btn-primary' onClick={this.props.setPage.bind(this, 'BrowserPractice')}>Browser Practice</button>
+            <button style={moduleButtonStyle} type='button' className='btn btn-secondary' onClick={() => {this.props.setPage('KeyboardPractice')}}>Keyboard Practice</button>
+            <button style={moduleButtonStyle} type='button' className='btn btn-success'onClick={() => {this.props.setPage('TargetPractice')}}>Target Practice</button>
+          </div>
         </div>
         }
-      </Container>
+      </div>
     )
   }
 }
 
+const welcomeStyle = {
+  textShadow: '2px 2px 4px #404040',
+  paddingBottom: '10px',
+  fontFamily: 'Playfair Display SC'
+}
+const eyeImageStyle = {
+  maxWidth: '60%',
+  maxHeight: '60%',
+  objectFit: 'cover',
+  width: '700px',
+  height: '320px',
+  margin: '75px 25px 20px 25px'
+}
+const moduleStyle = {
+  fontFamily: 'Playfair Display',
+  textTransform: 'capitalize',
+  fontSize: '40px',
+  color: '#eed58a'
+}
+const moduleButtonStyle = {
+  margin: '5px',
+  fontFamily: 'Playfair Display',
+  color: 'white',
+  textShadow: '0px 1px 1px #404040'
+}
 export default Home;

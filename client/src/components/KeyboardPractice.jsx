@@ -97,14 +97,14 @@ class KeyboardPractice extends React.Component {
   render () {
     return (
       <div>
-        <button onClick={() => {this.props.setPage('Home')}}>Home</button>
+        <button type='button' className='btn btn-primary' onClick={() => {this.props.setPage('Home')}}>Home</button>
         <div>
           <label>
             <div>{this.state.startPhrase} <b>{this.state.practiceWord}</b>:</div>
             <div>Select Enter When Complete</div>
             <input type='text' value={this.state.currentInputValue} onChange={this.handleChange} onClick={this.toggleKeyboardOn} />
           </label>
-          <input type='button' value='Enter' onClick={this.checkWord}></input>
+          <input type='button' className='btn btn-secondary' value='Enter' onClick={this.checkWord}></input>
           <div>{this.state.entryResponse}</div>
           <div>Current Streak: {this.state.streak}</div>
         </div>

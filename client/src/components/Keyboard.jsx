@@ -14,9 +14,9 @@ const keyboard = (props) => {
       return (
         <div>
           {lowerCaseKeys.map((keyRow) =>
-            <div>
+            <div key={keyRow}>
             {keyRow.map((key) =>
-              <button onClick={() => {props.keyPress(key)}}>{key}</button>
+              <button type='button' className='btn btn-outline-primary' onClick={() => {props.keyPress(key)}} key={key}>{key}</button>
             )}
             </div>
           )}
@@ -26,9 +26,9 @@ const keyboard = (props) => {
         return (
           <div>
             {upperCaseKeys.map((keyRow) =>
-              <div>
+              <div key={keyRow}>
               {keyRow.map((key) =>
-                <button onClick={() => {props.keyPress(key)}}>{key}</button>
+                <button type='button' className='btn btn-outline-primary' onClick={() => {props.keyPress(key)}} key={key}>{key}</button>
               )}
               </div>
             )}
@@ -38,9 +38,9 @@ const keyboard = (props) => {
         return (
           <div>
             {nums.map((keyRow) =>
-              <div>
+              <div key={keyRow}>
               {keyRow.map((key) =>
-                <button onClick={() => {props.keyPress(key)}}>{key}</button>
+                <button type='button' className='btn btn-outline-primary' onClick={() => {props.keyPress(key)}} key={key}>{key}</button>
               )}
               </div>
             )}

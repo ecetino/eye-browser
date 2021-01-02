@@ -10,6 +10,6 @@ $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1700px);
 $container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1640px);
 $enable-responsive-font-sizes: true;
 $btn-font-size: 30px;
-$btn-font-family: 'Playfair Display SC';
+$btn-font-family: 'Playfair Display';
 
 @import '~bootstrap/scss/bootstrap.scss';

@@ -13,6 +13,7 @@ const login = (props) => {
 const loginButtonStyle = {
   width: '150px',
   marginBottom: '20px',
+  fontFamily: 'Playfair Display SC'
 }
 const guestStyle = {
   fontFamily: 'Playfair Display',

@@ -4,28 +4,28 @@ import target from '../images/target.png';
 const targets = (props) => {
   if (props.ready) {
     return (
-      <div>
+      <div className='d-block'>
         {!props.completed &&
-        <div>
-          <button onClick={props.reset}>restart</button>
-          <div>{props.time} secs</div>
+        <div style={aboveTargetsStyle}>
+          <button type='button' className='btn btn-secondary' style={restartButtonStyle} onClick={props.reset}>Restart</button>
+          <div className='d-inline' style={timeStyle}>{props.time} secs</div>
         </div>
         }
-        <div>
+        <div className='container-fluid' style={targetContainerStyle}>
           {props.t1 &&
-          <button name='t1' style={{'backgroundColor': '#404040', 'border': 'none'}}  onClick={() => {props.toggleTarget('t1')}}><img src={target} style={{'height': '150px'}}/></button>
+          <button name='t1' style={target1Style}  onClick={() => {props.toggleTarget('t1')}}><img src={target} style={targetImgStyle}/></button>
           }
           {props.t2 &&
-          <button name='t2' style={{'backgroundColor': '#404040', 'border': 'none'}} onClick={() => {props.toggleTarget('t2')}}><img src='https://lazy-eye-trainer.s3-us-west-1.amazonaws.com/Target.png' style={{'height': '150px'}}/></button>
+          <button name='t2' style={target2Style} onClick={() => {props.toggleTarget('t2')}}><img src={target} style={targetImgStyle}/></button>
           }
           {props.t3 &&
-          <button name='t3' style={{'backgroundColor': '#404040', 'border': 'none'}} onClick={() => {props.toggleTarget('t3')}}><img src='https://lazy-eye-trainer.s3-us-west-1.amazonaws.com/Target.png' style={{'height': '150px'}}/></button>
+          <button name='t3' style={target3Style} onClick={() => {props.toggleTarget('t3')}}><img src={target} style={targetImgStyle}/></button>
           }
           {props.t4 &&
-          <button name='t4' style={{'backgroundColor': '#404040', 'border': 'none'}} onClick={() => {props.toggleTarget('t4')}}><img src='https://lazy-eye-trainer.s3-us-west-1.amazonaws.com/Target.png' style={{'height': '150px'}}/></button>
+          <button name='t4' style={target4Style} onClick={() => {props.toggleTarget('t4')}}><img src={target} style={targetImgStyle}/></button>
           }
           {props.t5 &&
-          <button name='t5' style={{'backgroundColor': '#404040', 'border': 'none'}} onClick={() => {props.toggleTarget('t5')}}><img src='https://lazy-eye-trainer.s3-us-west-1.amazonaws.com/Target.png' style={{'height': '150px'}}/></button>
+          <button name='t5' style={target5Style} onClick={() => {props.toggleTarget('t5')}}><img src={target} style={targetImgStyle}/></button>
           }
         </div>
       </div>
@@ -35,6 +35,55 @@ const targets = (props) => {
       <div></div>
     )
   }
+}
+
+const timeStyle = {
+  paddingTop: '40px',
+  fontSize: '50px',
+  textAlign: 'bottom'
+}
+const aboveTargetsStyle = {
+  paddingTop: '10px',
+}
+const restartButtonStyle = {
+  position: 'relative',
+  right: '10%',
+  margin: '10px -80px 30px 10px',
+  width: '200px',
+  height: '100px',
+  fontSize: '40px',
+  color: 'white',
+  textShadow: '0px 1px 1px #404040'
+}
+const targetContainerStyle = {
+  border: 'solid',
+  borderColor: 'white',
+  width: '835px',
+  height: '620px',
+  padding: '10px 5px'
+}
+const target1Style = {
+  backgroundColor: '#404040',
+  border: 'none'
+}
+const target2Style = {
+  backgroundColor: '#404040',
+  border: 'none'
+}
+const target3Style = {
+  backgroundColor: '#404040',
+  border: 'none'
+}
+const target4Style = {
+  backgroundColor: '#404040',
+  border: 'none'
+}
+const target5Style = {
+  backgroundColor: '#404040',
+  border: 'none'
+}
+const targetImgStyle = {
+  height: '150px'
 }
 
 export default targets;

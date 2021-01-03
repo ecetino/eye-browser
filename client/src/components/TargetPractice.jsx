@@ -1,5 +1,7 @@
 import React from 'react';
 import Targets from './Targets'
+import home from '../images/home.png';
+import target from '../images/target.png';
 
 class TargetPractice extends React.Component {
   constructor(props) {
@@ -23,14 +25,14 @@ class TargetPractice extends React.Component {
     this.stopTimer = this.stopTimer.bind(this);
   }
 
-  setReady () {
+  setReady() {
     this.setState({
       ready: !this.state.ready
     })
     this.startTimer();
   }
 
-  startTimer () {
+  startTimer() {
     this.timer = setInterval(() => {
       this.setState({
         time: this.state.time + 1
@@ -38,17 +40,17 @@ class TargetPractice extends React.Component {
     }, 1000)
   }
 
-  stopTimer () {
+  stopTimer() {
     clearInterval(this.timer);
   }
 
-  setCompleted () {
+  setCompleted() {
     this.setState({
       completed: !this.state.completed
     })
   }
 
-  reset () {
+  reset() {
     this.setState({
       t1: true,
       t2: true,
@@ -63,10 +65,10 @@ class TargetPractice extends React.Component {
     this.startTimer();
   }
 
-  toggleTarget (target) {
+  toggleTarget(target) {
     this.setState({
-    [target]: false,
-    targetsChecked: this.state.targetsChecked + 1
+      [target]: false,
+      targetsChecked: this.state.targetsChecked + 1
     })
     if (this.state.targetsChecked === 4) {
       this.setCompleted();
@@ -74,24 +76,71 @@ class TargetPractice extends React.Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <button onClick={() => {this.props.setPage('Home')}}>Home</button>
-        <div>Please click ready to begin target practice</div>
-        {!this.state.ready &&
-        <button onClick={this.setReady}>Ready</button>
-        }
-        {this.state.completed &&
         <div>
-          <h2>Nice job! Completed in {this.state.time} seconds</h2>
-          <button onClick={this.reset}>Try again?</button>
+          <button style={homeButtonStyle} type='button' className='btn btn-primary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home} /></button>
         </div>
-        }
-        <Targets startTimer={this.startTimer} ready={this.state.ready} reset={this.reset} t1={this.state.t1} t2={this.state.t2} t3={this.state.t3} t4={this.state.t4} t5={this.state.t5} targetsChecked={this.state.targetsChecked} toggleTarget={this.toggleTarget} completed={this.state.completed} time={this.state.time}></Targets>
+        <div className='container-fluid text-center'>
+          <div>
+            {!this.state.ready &&
+              <div style={notReadyTargetStyle}>
+                <div className='display-1'>Please Click Ready To<br />  Begin Target Practice <img src={target} style={sentenceTargetStyle} /></div>
+                <div className='h4 text-secondary'>After you ready up, click each of the five targets as fast as you can</div>
+                <button type='button' className='btn btn-secondary' style={readyButtonStyle} onClick={this.setReady}>Ready</button>
+              </div>
+            }
+            {this.state.completed &&
+              <div style={readyTargetStyle}>
+                <div className='display-2'>Nice job! Completed in {this.state.time} seconds</div>
+                <button style={tryAgainButton} type='button' className='btn btn-primary' onClick={this.reset}>Try again?</button>
+              </div>
+            }
+            <Targets startTimer={this.startTimer} ready={this.state.ready} reset={this.reset} t1={this.state.t1} t2={this.state.t2} t3={this.state.t3} t4={this.state.t4} t5={this.state.t5} targetsChecked={this.state.targetsChecked} toggleTarget={this.toggleTarget} completed={this.state.completed} time={this.state.time}></Targets>
+          </div>
+        </div>
       </div>
     )
   }
 }
 
+const tryAgainButton = {
+  marginTop: '30px',
+  width: '250px',
+  height: '100px',
+  fontSize: '40px',
+  color: 'white',
+  textShadow: '0px 1px 1px #404040'
+}
+const readyTargetStyle = {
+  paddingTop: '220px'
+}
+const sentenceTargetStyle = {
+  width: '100px',
+  marginBottom: '20px'
+}
+const notReadyTargetStyle = {
+  paddingTop: '220px',
+  textShadow: '0px 1px 1px #404040'
+}
+const homeButtonStyle = {
+  textAlign: 'left',
+  float: 'left',
+  padding: '20px',
+  fontSize: '40px',
+  margin: '10px'
+}
+const homeImgStyle = {
+  width: '70px',
+  height: '70px'
+}
+const readyButtonStyle = {
+  marginTop: '30px',
+  width: '150px',
+  height: '100px',
+  fontSize: '40px',
+  color: 'white',
+  textShadow: '0px 1px 1px #404040'
+}
 export default TargetPractice;

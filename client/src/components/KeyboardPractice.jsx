@@ -1,10 +1,6 @@
 import React from 'react';
 import Keyboard from './Keyboard';
 import home from '../images/home.png';
-import capslock from '../images/capslock.png';
-import backspace from '../images/backspace.png';
-import exitkeyboard from '../images/backspace.png';
-import spacebar from '../images/backspace.png'
 
 const faker = require('faker');
 
@@ -37,11 +33,11 @@ class KeyboardPractice extends React.Component {
           currentInputValue: edit
         })
       }
-    } else if (key === 'exit keyboard') {
+    } else if (key === 'exitKeyboard') {
       this.setState({
         keyboardOn: !this.state.keyboardOn
       })
-    } else if (key === 'caps') {
+    } else if (key === 'capsLock') {
       this.setState({
         caps: !this.state.caps
       })
@@ -106,25 +102,29 @@ class KeyboardPractice extends React.Component {
         <div>
           <button style={homeButtonStyle} type='button' className='btn btn-primary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home}/></button>
         </div>
-        <div>
+        <div style={nonKeyboardStyle}>
           <label>
-          <div style={startPhrase} className='display-1'>{this.state.startPhrase}: <b style={practiceWord}>{this.state.practiceWord}</b></div>
-          <div style={inputDivStyle}>
-            <input style={inputStyle} className='form-control' placeholder='Press enter when complete' type='text' value={this.state.currentInputValue} onChange={this.handleChange} onClick={this.toggleKeyboardOn} />
-            <input style={enterButtonStyle} type='button' className='btn btn-secondary' value='Enter' onClick={this.checkWord}></input>
-          </div>
-        </label>
+            <div style={startPhrase} className='display-1'>{this.state.startPhrase}: <b style={practiceWord}>{this.state.practiceWord}</b></div>
+            <div style={inputDivStyle}>
+              <input style={inputStyle} className='form-control' placeholder='Press enter when complete' type='text' value={this.state.currentInputValue} onChange={this.handleChange} onClick={this.toggleKeyboardOn} />
+              <input style={enterButtonStyle} type='button' className='btn btn-secondary' value='Enter' onClick={this.checkWord}></input>
+            </div>
+          </label>
+          <div className='h2 text-center'>{this.state.entryResponse}</div>
+          <div className='h2 text-center'>Current Streak: {this.state.streak}</div>
         </div>
-        <div>{this.state.entryResponse}</div>
-        <div>Current Streak: {this.state.streak}</div>
         <Keyboard keyPress={this.keyPress} caps={this.state.caps} nums={this.state.nums} keyboardOn={this.state.keyboardOn} ></Keyboard>
       </div>
     )
   }
 }
 
+const nonKeyboardStyle = {
+  marginRight: '120px',
+  marginBottom: '20px'
+}
 const inputDivStyle = {
-  maxWidth: '700px'
+  width: '900px',
 }
 const startPhrase = {
   textAlign: 'center'
@@ -155,6 +155,7 @@ const homeButtonStyle = {
   float: 'left',
   padding: '20px',
   fontSize: '40px',
+
 }
 const homeImgStyle = {
   width: '70px',

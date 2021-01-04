@@ -16,6 +16,7 @@ class TargetPractice extends React.Component {
       t5: true,
       targetsChecked: 0,
       time: 0,
+      inProgress: false
     }
     this.setReady = this.setReady.bind(this);
     this.setCompleted = this.setCompleted.bind(this);
@@ -27,7 +28,8 @@ class TargetPractice extends React.Component {
 
   setReady() {
     this.setState({
-      ready: !this.state.ready
+      ready: !this.state.ready,
+      inProgress: !this.state.inProgress
     })
     this.startTimer();
   }
@@ -46,7 +48,8 @@ class TargetPractice extends React.Component {
 
   setCompleted() {
     this.setState({
-      completed: !this.state.completed
+      completed: !this.state.completed,
+      inProgress: !this.state.inProgress
     })
   }
 
@@ -59,7 +62,8 @@ class TargetPractice extends React.Component {
       t5: true,
       targetsChecked: 0,
       completed: false,
-      time: 0
+      time: 0,
+      inProgress: true
     })
     this.stopTimer();
     this.startTimer();
@@ -97,7 +101,7 @@ class TargetPractice extends React.Component {
                 <button style={tryAgainButton} type='button' className='btn btn-primary' onClick={this.reset}>Try again?</button>
               </div>
             }
-            <Targets startTimer={this.startTimer} ready={this.state.ready} reset={this.reset} t1={this.state.t1} t2={this.state.t2} t3={this.state.t3} t4={this.state.t4} t5={this.state.t5} targetsChecked={this.state.targetsChecked} toggleTarget={this.toggleTarget} completed={this.state.completed} time={this.state.time}></Targets>
+            <Targets startTimer={this.startTimer} ready={this.state.ready} reset={this.reset} t1={this.state.t1} t2={this.state.t2} t3={this.state.t3} t4={this.state.t4} t5={this.state.t5} targetsChecked={this.state.targetsChecked} toggleTarget={this.toggleTarget} completed={this.state.completed} time={this.state.time} inProgress={this.state.inProgress}></Targets>
           </div>
         </div>
       </div>
@@ -143,4 +147,4 @@ const readyButtonStyle = {
   color: 'white',
   textShadow: '0px 1px 1px #404040'
 }
-export default TargetPractice;
+export default TargetPractice;``

@@ -32,9 +32,9 @@ class Home extends React.Component {
         <div >
           <h2 style={moduleStyle}>Please select a training module</h2>
           <div >
-            <button style={moduleButtonStyle} type='button' className='btn btn-primary' onClick={this.props.setPage.bind(this, 'BrowserPractice')}>Browser Practice</button>
-            <button style={moduleButtonStyle} type='button' className='btn btn-secondary' onClick={() => {this.props.setPage('KeyboardPractice')}}>Keyboard Practice</button>
-            <button style={moduleButtonStyle} type='button' className='btn btn-success'onClick={() => {this.props.setPage('TargetPractice')}}>Target Practice</button>
+            <button style={moduleButtonStyle} type='button' className='btn btn-primary' onClick={() => {this.props.setPage('KeyboardPractice')}}>Keyboard Practice</button>
+            <button style={moduleButtonStyle} type='button' className='btn btn-secondary'onClick={() => {this.props.setPage('TargetPractice')}}>Target Practice</button>
+            <button style={moduleButtonStyle} type='button' className='btn btn-danger' onClick={this.props.setPage.bind(this, 'BrowserPractice')}>Browser Practice</button>
           </div>
         </div>
         }
@@ -60,12 +60,12 @@ const moduleStyle = {
   fontFamily: 'Playfair Display',
   textTransform: 'capitalize',
   fontSize: '40px',
-  color: '#eed58a'
+  color: '#adb5bd'
 }
 const moduleButtonStyle = {
   margin: '5px',
   fontFamily: 'Playfair Display',
   color: 'white',
-  textShadow: '0px 1px 1px #404040'
+  textShadow: '1px 1px 2px #404040'
 }
 export default Home;

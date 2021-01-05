@@ -100,7 +100,7 @@ class KeyboardPractice extends React.Component {
     return (
       <div className='container-fluid text-center' style={containerStyle}>
         <div>
-          <button style={homeButtonStyle} type='button' className='btn btn-primary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home}/></button>
+          <button style={homeButtonStyle} type='button' className='btn btn-secondary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home}/></button>
         </div>
         <div style={nonKeyboardStyle}>
           <label>
@@ -130,7 +130,7 @@ const startPhrase = {
   textAlign: 'center'
 }
 const practiceWord = {
-  color: '#ccad49'
+  color: '#a8dadc'
 }
 const enterButtonStyle = {
   display: 'inline-block',
@@ -155,7 +155,6 @@ const homeButtonStyle = {
   float: 'left',
   padding: '20px',
   fontSize: '40px',
-
 }
 const homeImgStyle = {
   width: '70px',

@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
 
-$primary: #ccad49;
+$primary: #457b9d;
 $secondary: silver;
-$success: #bd998d;
-$body-bg: #404040;
+$warning: rgb(238, 126, 52);
+$info:#457b9d;
+$success: #457b9d;
+$danger: #e63946;
+$body-bg: #1d3557;
 $body-color: #FFF;
 $font-family-sans-serif: 'Playfair Display';
 $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1700px);

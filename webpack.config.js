@@ -45,7 +45,7 @@ module.exports = {
     fallback: {
       util: require.resolve('util/')
     },
-    extensions: ['.jsx', '.js'],
+    extensions: ['.jsx', '.js', '.mjs'],
   },
   devtool: 'inline-source-map',
   mode: 'development',

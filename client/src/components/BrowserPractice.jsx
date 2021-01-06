@@ -2,11 +2,22 @@ import React from 'react';
 import home from '../images/home.png';
 import shades from '../images/shades.png'
 import { Carousel, Dropdown, Button, ButtonGroup, Breadcrumb } from 'react-bootstrap';
-import Keyboard from './Keyboard.jsx'
+import Keyboard from './Keyboard';
+import H4HModal from './H4HModal'
 
 class BrowserPractice extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      modalShow: false
+    }
+    this.toggleModalShow = this.toggleModalShow.bind(this);
+  }
+
+  toggleModalShow () {
+    this.setState({
+      modalShow: !this.state.modalShow
+    })
   }
 
   render() {
@@ -94,10 +105,12 @@ class BrowserPractice extends React.Component {
             <div>
               <b>Shades for Humanity</b>
               <dl className='mb-1  row'>
-                <dd className='col-sm-12'>Round up at checkout to donate towards<br/> Habitat for Humanity<br/><dd className='text-info'><u>Click here to learn more</u></dd></dd>
+                <dd className='col-sm-12'>Round up at checkout to donate towards<br/> Habitat for Humanity<br/><div className='text-info'><u onClick={() => {this.toggleModalShow()}} >Click here to learn more</u></div></dd>
+
               </dl>
             </div>
           </div>
+
           <div style={descriptionStyle}>
             <b>About the Frame</b>
             <p>
@@ -108,7 +121,7 @@ class BrowserPractice extends React.Component {
                 style={descriptionImgStyle}
               />
           </div>
-        </div>
+        </div>          <H4HModal modalShow={this.state.modalShow} toggleModalShow={this.toggleModalShow}></H4HModal>
       </div>
     )
   }

@@ -62,7 +62,7 @@ class TargetPractice extends React.Component {
       this.setState({
         time: this.state.time + 1
       })
-    }, 1000)
+    }, 100)
   }
 
   stopTimer() {
@@ -123,7 +123,7 @@ class TargetPractice extends React.Component {
               }
               {this.state.completed &&
                 <div style={readyTargetStyle}>
-                  <div className='display-1'>Nice job!<br /><h2>Completed in {this.state.time} seconds</h2> </div>
+                  <div className='display-1'>Nice job!<br /><h2>Completed in {Math.floor(this.state.time/10)}. {this.state.time%10} seconds</h2> </div>
                   <button style={tryAgainButton} type='button' className='btn btn-primary' onClick={this.reset}>Try again?</button>
                 </div>
               }

@@ -1,1 +1,1 @@
-Trainer intended for use with LazyEye. Allows user to become accustomed to using eye tracking for cursor movement.
+Trainer intended for use with LazyEye. Allows user to become accustomed to using eye tracking for cursor movement through training modules involving keyboard use, eye movement tests, and by simulating a web browser.

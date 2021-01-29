@@ -96,8 +96,11 @@ const keyboard = (props) => {
 
 const keyboardContainerStyle = {
   backgroundColor: 'black',
+  minWidth: '1250px',
   maxWidth: '1250px',
   padding: '30px 0px',
+  marginLeft: '80px',
+  marginTop: '20px',
 }
 const keyboardButtonStyle = {
   width: '100px',

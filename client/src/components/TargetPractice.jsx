@@ -107,13 +107,12 @@ class TargetPractice extends React.Component {
   render() {
     return (
       <div>
-
         <div className='container-fluid text-center'>
           <div className='row'>
             <div className='col-sm-1'>
               <button style={homeButtonStyle} type='button' className='btn btn-secondary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home} /></button>
             </div>
-            <div className='col-lg-8'>
+            <div className='ml-5 col-lg-7'>
               {!this.state.ready &&
                 <div style={notReadyTargetStyle}>
                   <div className='display-1'>Please Click Ready To<br />  Begin Target Practice <img src={target} style={sentenceTargetStyle} /></div>
@@ -130,7 +129,7 @@ class TargetPractice extends React.Component {
               <Targets startTimer={this.startTimer} ready={this.state.ready} reset={this.reset} t1={this.state.t1} t1Height={this.state.t1Height} t2={this.state.t2} t2Height={this.state.t2Height} t3={this.state.t3} t3Height={this.state.t3Height} t4={this.state.t4} t4Height={this.state.t4Height} t5={this.state.t5} t5Height={this.state.t5Height} targetsChecked={this.state.targetsChecked} toggleTarget={this.toggleTarget} completed={this.state.completed} time={this.state.time} inProgress={this.state.inProgress}></Targets>
             </div>
             <div className='col-lg-3'>
-              <Leaderboard measure='Time' tableData={targetTableData}></Leaderboard>
+              <Leaderboard time={true} measure='Time' tableData={this.props.targetTableData}></Leaderboard>
             </div>
           </div>
         </div>

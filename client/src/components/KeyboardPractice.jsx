@@ -1,6 +1,8 @@
 import React from 'react';
 import Keyboard from './Keyboard';
 import home from '../images/home.png';
+import Leaderboard from './Leaderboard';
+import targetTableData from './sampleData/sampleTargetTableData'
 
 const faker = require('faker');
 
@@ -14,6 +16,7 @@ class KeyboardPractice extends React.Component {
       correct: 'no entry yet',
       streak: 0,
       entryResponse: '',
+      entryResponseColor: 'green',
       caps: false,
       nums: false,
       keyboardOn: true
@@ -79,13 +82,15 @@ class KeyboardPractice extends React.Component {
         currentInputValue: '',
         correct: true,
         streak: this.state.streak + 1,
-        entryResponse: 'Correct!'
+        entryResponse: 'Correct!',
+        entryResponseColor: 'green',
       })
     } else {
       this.setState({
         correct: false,
         streak: 0,
         entryResponse: 'Try again!',
+        entryResponseColor: 'red',
       })
     }
   }
@@ -98,22 +103,31 @@ class KeyboardPractice extends React.Component {
 
   render() {
     return (
-      <div className='container-fluid text-center' style={containerStyle}>
-        <div>
-          <button style={homeButtonStyle} type='button' className='btn btn-secondary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home}/></button>
-        </div>
-        <div style={nonKeyboardStyle}>
-          <label>
-            <div style={startPhrase} className='display-1'>{this.state.startPhrase}: <b style={practiceWord}>{this.state.practiceWord}</b></div>
-            <div style={inputDivStyle}>
-              <input style={inputStyle} className='form-control' placeholder='Press enter when complete' type='text' value={this.state.currentInputValue} onChange={this.handleChange} onClick={this.toggleKeyboardOn} />
-              <input style={enterButtonStyle} type='button' className='btn btn-secondary' value='Enter' onClick={this.checkWord}></input>
+      <div className='container-fluid' >
+        <div className='row'>
+          <div className='col-lg-9' >
+            <div className='text-center' style={containerStyle}>
+              <div>
+                <button style={homeButtonStyle} type='button' className='btn btn-secondary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home} /></button>
+              </div>
+              <div className='ml-5' style={nonKeyboardStyle}>
+                <label>
+                  <div style={startPhrase} className='display-1'>{this.state.startPhrase}: <b style={practiceWord}>{this.state.practiceWord}</b></div>
+                  <div style={inputDivStyle}>
+                    <input style={inputStyle} className='form-control' placeholder='Press enter when complete' type='text' value={this.state.currentInputValue} onChange={this.handleChange} onClick={this.toggleKeyboardOn} />
+                    <input style={enterButtonStyle} type='button' className='btn btn-secondary' value='Enter' onClick={this.checkWord}></input>
+                  </div>
+                </label>
+                <div>
+                  <div className='h2 text-center d-inline' style={{ color: this.state.entryResponseColor }} >{this.state.entryResponse}</div>
+                  <div className='h2 text-center d-inline ml-3' >Current Streak: {this.state.streak}</div>
+                </div>
+                <Keyboard keyPress={this.keyPress} caps={this.state.caps} nums={this.state.nums} keyboardOn={this.state.keyboardOn} ></Keyboard>
+              </div >
             </div>
-          </label>
-          <div className='h2 text-center'>{this.state.entryResponse}</div>
-          <div className='h2 text-center'>Current Streak: {this.state.streak}</div>
+          </div>
+            <Leaderboard className='col-lg-2' streak={true} measure='Best Streak' tableData={this.props.keyboardTableData}></Leaderboard>
         </div>
-        <Keyboard keyPress={this.keyPress} caps={this.state.caps} nums={this.state.nums} keyboardOn={this.state.keyboardOn} ></Keyboard>
       </div>
     )
   }

@@ -14,7 +14,9 @@ class App extends React.Component {
       user: '',
       password: '',
       confirmPassword: '',
+      confirmedPasswordFailed: false,
       loggedIn: false,
+      loginFailed: false,
       keyboardRecordsArr: [],
       targetRecordsArr: [],
       browserRecordsArr: [],
@@ -22,21 +24,24 @@ class App extends React.Component {
     this.setPage = this.setPage.bind(this);
     this.setUser = this.setUser.bind(this);
     this.setLoginInfo = this.setLoginInfo.bind(this);
+    this.setLoginFailed = this.setLoginFailed.bind(this);
     this.confirmPassword = this.confirmPassword.bind(this);
     this.setLoggedIn = this.setLoggedIn.bind(this);
     this.getKeyboardRecords = this.getKeyboardRecords.bind(this);
     this.getTargetRecords = this.getTargetRecords.bind(this);
     this.getBrowserRecords = this.getBrowserRecords.bind(this);
+    this.testLogin = this.testLogin.bind(this);
   }
 
-  componentDidMount () {
-   this.getKeyboardRecords();
-   this.getTargetRecords();
-   this.getBrowserRecords();
+  componentDidMount() {
+    this.setPage('KeyboardPractice');
+    this.getKeyboardRecords();
+    this.getTargetRecords();
+    this.getBrowserRecords();
   }
 
   setPage(page) {
-    this.setState ({
+    this.setState({
       currentPage: page,
     })
   }
@@ -54,6 +59,12 @@ class App extends React.Component {
     })
   }
 
+  setLoginFailed() {
+    this.setState({
+      loginFailed: !this.state.loginnFailed
+    })
+  }
+
   setLoginInfo(event) {
     const target = event.target;
     const value = target.value;
@@ -64,7 +75,7 @@ class App extends React.Component {
     })
   }
 
-  confirmPassword () {
+  confirmPassword() {
     return this.state.password === this.state.confirmPassword;
   }
 
@@ -101,6 +112,22 @@ class App extends React.Component {
     }
   }
 
+  async testLogin() {
+    try {
+      const result = await Axios.get('/userAuth');
+      console.log(result);
+      if (result) {
+        this.setLoggedIn();
+      } else {
+        this.setState({
+          loginFailed: true
+        })
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   render() {
     if (this.state.currentPage === 'BrowserPractice') {
       return <BrowserPractice browserTableData={this.state.browserRecordsArr} setPage={this.setPage}></BrowserPractice>
@@ -109,7 +136,7 @@ class App extends React.Component {
     } else if (this.state.currentPage === 'TargetPractice') {
       return <TargetPractice targetTableData={this.state.targetRecordsArr} setPage={this.setPage}></TargetPractice>
     } else {
-      return <Home setLoggedIn={this.setLoggedIn} loggedIn={this.state.loggedIn} setUser={this.setUser} setLoginInfo={this.setLoginInfo} confirmPassword={this.confirmPassword} password={this.state.password} confirmPassword={this.state.confirmPassword} user={this.state.user} setPage={this.setPage}></Home>
+      return <Home loginFailed={this.state.loginFailed} setLoginFailed={this.setLoginFailed} setLoggedIn={this.setLoggedIn} loggedIn={this.state.loggedIn} setUser={this.setUser} setLoginInfo={this.setLoginInfo} confirmPassword={this.confirmPassword} password={this.state.password} confirmPassword={this.state.confirmPassword} user={this.state.user} setPage={this.setPage}></Home>
     }
   }
 }

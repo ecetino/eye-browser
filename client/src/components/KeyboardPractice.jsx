@@ -105,12 +105,14 @@ class KeyboardPractice extends React.Component {
     return (
       <div className='container-fluid' >
         <div className='row'>
-          <div className='col-lg-9' >
+          <div>
+            <button style={homeButtonStyle} type='button' className='btn btn-secondary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home} /></button>
+          </div>
+        </div>
+        <div className='row' align='center'>
+          <div className='col-9' >
             <div className='text-center' style={containerStyle}>
-              <div>
-                <button style={homeButtonStyle} type='button' className='btn btn-secondary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home} /></button>
-              </div>
-              <div className='ml-5' style={nonKeyboardStyle}>
+              <div style={nonKeyboardStyle}>
                 <label>
                   <div style={startPhrase} className='display-1'>{this.state.startPhrase}: <b style={practiceWord}>{this.state.practiceWord}</b></div>
                   <div style={inputDivStyle}>
@@ -122,11 +124,15 @@ class KeyboardPractice extends React.Component {
                   <div className='h2 text-center d-inline' style={{ color: this.state.entryResponseColor }} >{this.state.entryResponse}</div>
                   <div className='h2 text-center d-inline ml-3' >Current Streak: {this.state.streak}</div>
                 </div>
+              </div>
+              <div>
                 <Keyboard keyPress={this.keyPress} caps={this.state.caps} nums={this.state.nums} keyboardOn={this.state.keyboardOn} ></Keyboard>
               </div >
             </div>
           </div>
-            <Leaderboard className='col-lg-2' streak={true} measure='Best Streak' tableData={this.props.keyboardTableData}></Leaderboard>
+          <div className='col'>
+            <Leaderboard streak={true} measure='Best Streak' tableData={this.props.keyboardTableData}></Leaderboard>
+          </div>
         </div>
       </div>
     )
@@ -134,11 +140,11 @@ class KeyboardPractice extends React.Component {
 }
 
 const nonKeyboardStyle = {
-  marginRight: '120px',
-  marginBottom: '20px'
+  marginBottom: '20px',
+  minWidth: '900px'
 }
 const inputDivStyle = {
-  width: '900px',
+  width: '900px'
 }
 const startPhrase = {
   textAlign: 'center'
@@ -153,26 +159,24 @@ const enterButtonStyle = {
   marginBottom: '18px',
 }
 const inputStyle = {
-  float: 'center',
   textAlign: 'center',
   margin: '20px 20px',
   padding: '30px 30px',
-  fontSize: '40px',
+  fontSize: '35px',
   display: 'inline-block',
-  maxWidth: '500px'
+  maxWidth: '480px'
 }
 const containerStyle = {
-  padding: '15px'
+  align: 'center'
 }
 const homeButtonStyle = {
   textAlign: 'left',
-  float: 'left',
   padding: '20px',
-  fontSize: '40px',
+  margin: '20px',
 }
 const homeImgStyle = {
-  width: '70px',
-  height: '70px'
+  width: '50px',
+  height: '50px'
 }
 
 export default KeyboardPractice;

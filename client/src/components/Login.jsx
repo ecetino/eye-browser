@@ -4,7 +4,6 @@ import SignUpModal from './SignUpModal';
 
 const login = (props) => {
   const [modalShow, setModalShow] = React.useState(false);
-  const [loginFailed, setLoginFailed] = React.useState(true);
 
   return (
     <div className='container-fluid' style={loginContainer}>
@@ -16,8 +15,8 @@ const login = (props) => {
           <Form.Control value={props.password} onChange={props.setLoginInfo} size='lg' aria-describedby="passwordHelpBlock" type="password" placeholder="Password" />
         </Form.Group>
       </Form>
-      {loginFailed &&
-        <div className="text red">Error</div>
+      {props.loginFailed &&
+        <h5 className="text-danger">Login not recognized. Please try again.</h5>
       }
       <button type='button' className='btn btn-info' style={loginButtonStyle}>Login</button>
       <button type='button' className='btn btn-danger' onClick={() => setModalShow(true)} style={signUpButtonStyle}>Sign Up</button>

@@ -11,21 +11,25 @@ class App extends React.Component {
     super(props);
     this.state = {
       currentPage: '',
-      user: 'none',
+      user: '',
+      password: '',
+      confirmPassword: '',
+      loggedIn: false,
       keyboardRecordsArr: [],
       targetRecordsArr: [],
       browserRecordsArr: [],
-      loggedIn: false
     }
     this.setPage = this.setPage.bind(this);
+    this.setUser = this.setUser.bind(this);
+    this.setLoginInfo = this.setLoginInfo.bind(this);
+    this.confirmPassword = this.confirmPassword.bind(this);
+    this.setLoggedIn = this.setLoggedIn.bind(this);
     this.getKeyboardRecords = this.getKeyboardRecords.bind(this);
     this.getTargetRecords = this.getTargetRecords.bind(this);
     this.getBrowserRecords = this.getBrowserRecords.bind(this);
-    this.setLoggedIn = this.setLoggedIn.bind(this);
   }
 
   componentDidMount () {
-   this.setPage('Home');
    this.getKeyboardRecords();
    this.getTargetRecords();
    this.getBrowserRecords();
@@ -37,16 +41,36 @@ class App extends React.Component {
     })
   }
 
-  setLoggedIn () {
+  setUser(user) {
+    this.setState({
+      user: user,
+      loggedIn: true
+    })
+  }
+
+  setLoggedIn() {
     this.setState({
       loggedIn: !this.state.loggedIn
     })
   }
 
+  setLoginInfo(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.id;
+
+    this.setState({
+      [name]: value
+    })
+  }
+
+  confirmPassword () {
+    return this.state.password === this.state.confirmPassword;
+  }
+
   async getKeyboardRecords() {
     try {
       const recs = await Axios.get('/keyboardRecs');
-      console.log(recs.data)
       this.setState({
         keyboardRecordsArr: recs.data
       })
@@ -85,7 +109,7 @@ class App extends React.Component {
     } else if (this.state.currentPage === 'TargetPractice') {
       return <TargetPractice targetTableData={this.state.targetRecordsArr} setPage={this.setPage}></TargetPractice>
     } else {
-      return <Home loggedIn={this.state.loggedIn} setLoggedIn={this.setLoggedIn} user={this.state.user} setPage={this.setPage}></Home>
+      return <Home setLoggedIn={this.setLoggedIn} loggedIn={this.state.loggedIn} setUser={this.setUser} setLoginInfo={this.setLoginInfo} confirmPassword={this.confirmPassword} password={this.state.password} confirmPassword={this.state.confirmPassword} user={this.state.user} setPage={this.setPage}></Home>
     }
   }
 }

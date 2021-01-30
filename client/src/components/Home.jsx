@@ -9,14 +9,14 @@ const home = (props) => {
   return (
     <div className='container-fluid text-center'>
       <img src={eye} className='img-fluid' style={eyeImageStyle} />
-      <h1 className='display-2' style={welcomeStyle}>Welcome to Lazy Eye Trainer</h1>
+      <h2 className='display-2' style={welcomeStyle}>Welcome to  <br/> Lazy Eye Trainer</h2>
       {!props.loggedIn &&
-        <Login setLoggedIn={props.setLoggedIn}></Login>
+        <Login setLoggedIn={props.setLoggedIn} setUser={props.setUser} user={props.user} password={props.password} confirmPassword={props.confirmPassword} setLoginInfo={props.setLoginInfo} ></Login>
       }
       {props.loggedIn &&
         <div >
           <h2 style={moduleStyle}>Please select a training module</h2>
-          <div >
+          <div>
             <button style={moduleButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.setPage('KeyboardPractice') }}>Keyboard Practice</button>
             <button style={moduleButtonStyle} type='button' className='btn btn-secondary' onClick={() => { props.setPage('TargetPractice') }}>Target Practice</button>
             <button style={moduleButtonStyle} type='button' className='btn btn-danger' onClick={props.setPage.bind(this, 'BrowserPractice')}>Browser Practice</button>
@@ -33,18 +33,18 @@ const welcomeStyle = {
   fontFamily: 'Playfair Display SC'
 }
 const eyeImageStyle = {
-  maxWidth: '60%',
-  maxHeight: '60%',
+  maxWidth: '80%',
   objectFit: 'cover',
-  width: '700px',
-  height: '320px',
-  margin: '75px 25px 20px 25px'
+  width: '500px',
+  maxHeight: '220px',
+  marginTop: '30px'
 }
 const moduleStyle = {
   fontFamily: 'Playfair Display',
   textTransform: 'capitalize',
   fontSize: '40px',
-  color: '#adb5bd'
+  color: '#adb5bd',
+  marginBottom: '20px'
 }
 const moduleButtonStyle = {
   margin: '5px',

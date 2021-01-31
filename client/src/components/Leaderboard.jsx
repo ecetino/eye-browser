@@ -14,11 +14,11 @@ const leaderboard =(props) => {
         {props.tableData.map((entry, rank) => {
           return(
             <tr key={entry.key}>
-              <th scope='row' key={rank}>{rank +1 }</th>
-              <td key={entry.users} >{entry.users}</td>
-              {props.time && <td key={entry.time} >{(Math.round(entry.time * 100) / 100).toFixed(2)}</td>}
-              {props.tasksCompleted && <td key={entry.tasksCompleted} >{entry.tasksCompleted}</td>}
-              {props.streak && <td key={entry.streak} >{entry.streak}</td>}
+              <th scope='row'>{rank +1 }</th>
+              <td>{entry.users}</td>
+              {props.time && <td>{(Math.round(entry.time * 100) / 100).toFixed(2)}</td>}
+              {props.tasksCompleted && <td>{entry.tasksCompleted}</td>}
+              {props.streak && <td>{entry.streak}</td>}
             </tr>
           )
         })}

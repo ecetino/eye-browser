@@ -175,8 +175,8 @@ const homeButtonStyle = {
   margin: '20px',
 }
 const homeImgStyle = {
-  width: '50px',
-  height: '50px'
+  width: '60px',
+  height: '60px'
 }
 
 export default KeyboardPractice;

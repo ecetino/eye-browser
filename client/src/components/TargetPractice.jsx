@@ -106,31 +106,29 @@ class TargetPractice extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className='container-fluid text-center'>
-          <div className='row'>
-            <div className='col-sm-1'>
-              <button style={homeButtonStyle} type='button' className='btn btn-secondary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home} /></button>
-            </div>
-            <div className='ml-5 col-lg-7'>
-              {!this.state.ready &&
-                <div style={notReadyTargetStyle}>
-                  <div className='display-1'>Please Click Ready To<br />  Begin Target Practice <img src={target} style={sentenceTargetStyle} /></div>
-                  <div className='h4 text-secondary'>After you ready up, click each of the five targets as fast as you can</div>
-                  <button type='button' className='btn btn-primary' style={readyButtonStyle} onClick={this.setReady}>Ready</button>
-                </div>
-              }
-              {this.state.completed &&
-                <div style={readyTargetStyle}>
-                  <div className='display-1'>Nice job!<br /><h2>Completed in {Math.floor(this.state.time/10)}. {this.state.time%10} seconds</h2> </div>
-                  <button style={tryAgainButton} type='button' className='btn btn-primary' onClick={this.reset}>Try again?</button>
-                </div>
-              }
-              <Targets startTimer={this.startTimer} ready={this.state.ready} reset={this.reset} t1={this.state.t1} t1Height={this.state.t1Height} t2={this.state.t2} t2Height={this.state.t2Height} t3={this.state.t3} t3Height={this.state.t3Height} t4={this.state.t4} t4Height={this.state.t4Height} t5={this.state.t5} t5Height={this.state.t5Height} targetsChecked={this.state.targetsChecked} toggleTarget={this.toggleTarget} completed={this.state.completed} time={this.state.time} inProgress={this.state.inProgress}></Targets>
-            </div>
-            <div className='col-lg-3'>
-              <Leaderboard time={true} measure='Time' tableData={this.props.targetTableData}></Leaderboard>
-            </div>
+      <div className='container-fluid'>
+        <div className='row'>
+          <button style={homeButtonStyle} type='button' className='btn btn-secondary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home} /></button>
+        </div>
+        <div className='row' align='center'>
+          <div className='col-9'>
+            {!this.state.ready &&
+              <div style={notReadyTargetStyle}>
+                <div className='display-2'>Please Click Ready To<br />  Begin Target Practice <img src={target} style={sentenceTargetStyle} /></div>
+                <div className='h4 text-secondary'>After you ready up, click each of the five targets as fast as you can</div>
+                <button type='button' className='btn btn-primary' style={readyButtonStyle} onClick={this.setReady}>Ready</button>
+              </div>
+            }
+            {this.state.completed &&
+              <div style={readyTargetStyle}>
+                <div className='display-1'>Nice job!<br /><h2>Completed in {Math.floor(this.state.time / 10)}. {this.state.time % 10} seconds</h2> </div>
+                <button style={tryAgainButton} type='button' className='btn btn-primary' onClick={this.reset}>Try again?</button>
+              </div>
+            }
+            <Targets startTimer={this.startTimer} ready={this.state.ready} reset={this.reset} t1={this.state.t1} t1Height={this.state.t1Height} t2={this.state.t2} t2Height={this.state.t2Height} t3={this.state.t3} t3Height={this.state.t3Height} t4={this.state.t4} t4Height={this.state.t4Height} t5={this.state.t5} t5Height={this.state.t5Height} targetsChecked={this.state.targetsChecked} toggleTarget={this.toggleTarget} completed={this.state.completed} time={this.state.time} inProgress={this.state.inProgress}></Targets>
+          </div>
+          <div className='col'>
+            <Leaderboard time={true} measure='Time' tableData={this.props.targetTableData}></Leaderboard>
           </div>
         </div>
       </div>
@@ -148,8 +146,8 @@ const tryAgainButton = {
 }
 const readyTargetStyle = {
   position: 'absolute',
-  top: '250px',
-  left: '30%'
+  top: '200px',
+  left: '35%'
 }
 const sentenceTargetStyle = {
   width: '100px',
@@ -158,19 +156,18 @@ const sentenceTargetStyle = {
 const notReadyTargetStyle = {
   position: 'absolute',
   top: '220px',
-  left: '5%',
+  left: '12%',
   textShadow: '0px 1px 1px #404040'
 }
 const homeButtonStyle = {
-  position: 'absolute',
   padding: '20px',
   fontSize: '40px',
-  margin: '10px',
-  left: '5px'
+  margin: '20px',
+  width: '100px'
 }
 const homeImgStyle = {
-  width: '70px',
-  height: '70px'
+  width: '60px',
+  height: '60px'
 }
 const readyButtonStyle = {
   marginTop: '30px',

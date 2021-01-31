@@ -126,7 +126,6 @@ class BrowserPractice extends React.Component {
             </div>
             <H4HModal modalShow={this.state.modalShow} toggleModalShow={this.toggleModalShow}></H4HModal>
           </div>
-          <Leaderboard className='col' tasksCompleted={true} measure='Task Completed' tableData={this.props.browserTableData}></Leaderboard>
         </div>
       </div>
     )

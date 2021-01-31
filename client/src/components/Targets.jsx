@@ -64,7 +64,7 @@ const targetContainerStyle = {
   border: 'solid',
   position: 'absolute',
   top: '200px',
-  left: '10%',
+  left: '15%',
   backgroundColor: '#cdcbcb',
   borderColor: 'black',
   width: '825px',

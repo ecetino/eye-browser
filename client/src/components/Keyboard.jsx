@@ -16,7 +16,7 @@ const keyboard = (props) => {
   } else {
     if (props.caps === false && props.nums === false) {
       return (
-        <div className='container-fluid text-center' style={keyboardContainerStyle}>
+        <div className='container text-center' style={keyboardContainerStyle}>
           <div>
             {lowerCaseKeys[0].map((key) =>
               <button style={keyboardButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
@@ -96,99 +96,96 @@ const keyboard = (props) => {
 
 const keyboardContainerStyle = {
   backgroundColor: 'black',
-  maxWidth: '1250px',
-  padding: '30px 0px',
+  marginTop: '20px',
+  width: '900px',
+  minWidth: '900px',
+  padding: '20px'
 }
 const keyboardButtonStyle = {
-  width: '100px',
-  height: '100px',
-  margin: '10px',
-  maxWidth: '100px',
-  maxHeight: '100px',
-  minWidth: '20px',
-  minHeight: '20px',
-  fontSize: '50px',
+  width: '70px',
+  height: '70px',
+  margin: '8px',
+  fontSize: '40px',
   color: 'black'
 }
 const switchButtonStyle = {
-  width: '130px',
-  height: '100px',
-  marginRight: '10px',
-  fontSize: '50px',
+  width: '110px',
+  height: '70px',
+  margin: '8px',
+  fontSize: '40px',
   color: 'black'
 }
 const spacebarButtonStyle = {
-  width: '900px',
-  height: '100px'
+  width: '585px',
+  height: '70px',
+  margin: '8px'
 }
 const spacebarImgStyle = {
-  width: '100px',
-  height: '50px',
-  paddingTop: '10px'
+  width: '60px',
+  height: '40px',
+  paddingTop: '10px',
 }
 const capsLockButtonStyle = {
-  width: '130px',
-  height: '100px',
-  marginRight: '35px'
+  width: '110px',
+  height: '70px',
+  margin: '8px'
 }
 const capsLockImgStyle = {
-  width: '60px',
-  height: '60px'
+  width: '45px',
+  height: '45px',
 }
 const exitKeyboardButtonStyle = {
-  width: '130px',
-  height: '100px',
-  marginLeft: '10px',
+  width: '110px',
+  height: '70px',
+  margin: '8px',
 }
 const exitKeyboardImgStyle = {
-  width: '60px',
-  height: '60px'
+  width: '45px',
+  height: '45px',
+  margin: '8px'
 }
 const backspaceButtonStyle = {
-  width: '130px',
-  height: '100px',
-  marginLeft: '45px'
+  width: '110px',
+  height: '70px',
+  margin: '8px'
 }
 const backspaceImgStyle = {
-  width: '60px',
-  height: '60px'
+  width: '45px',
+  height: '45px'
 }
 
 const numKeyboardContainerStyle = {
   backgroundColor: 'black',
-  maxWidth: '800px',
-  padding: '30px 0px'
+  maxWidth: '740px',
+  minWidth: '740px',
+  padding: '20px 0px'
 }
 const numKeyboardButtonStyle = {
-  width: '130px',
+  width: '120px',
   height: '100px',
   margin: '10px',
-  maxWidth: '130px',
-  maxHeight: '130px',
-  minWidth: '20px',
-  minHeight: '20px',
   fontSize: '50px',
   color: 'black'
 }
 const numSwitchButtonStyle = {
-  width: '130px',
+  width: '120px',
   height: '100px',
   margin: '10px',
   fontSize: '50px',
   color: 'black'
 }
 const numSpacebarButtonStyle = {
-  width: '280px',
+  width: '260px',
   height: '100px',
   margin: '10px'
 }
 const numBackspaceButtonStyle = {
-  width: '130px',
+  width: '120px',
   height: '100px',
   margin: '10px'
 }
 const numExitKeyboardButtonStyle = {
-  width: '130px',
+  width: '120px',
   height: '100px',
   margin: '10px',
 }

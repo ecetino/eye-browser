@@ -15,6 +15,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: ['@babel/transform-runtime'],
           },
         },
       },
@@ -45,7 +46,7 @@ module.exports = {
     fallback: {
       util: require.resolve('util/')
     },
-    extensions: ['.jsx', '.js'],
+    extensions: ['.jsx', '.js', '.mjs'],
   },
   devtool: 'inline-source-map',
   mode: 'development',

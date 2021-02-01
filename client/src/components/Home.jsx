@@ -5,42 +5,26 @@ import TargetPractice from './TargetPractice';
 import Login from './Login';
 import eye from '../images/eye.png';
 
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loggedIn: false
-    }
-    this.setLoggedIn = this.setLoggedIn.bind(this);
-  }
-
-  setLoggedIn () {
-    this.setState({
-      loggedIn: !this.state.loggedIn
-    })
-  }
-
-  render () {
-    return (
-      <div className='container-fluid text-center'>
-        <img src={eye} className='img-fluid' style={eyeImageStyle}/>
-        <h1 className='display-2' style={welcomeStyle}>Welcome to Lazy Eye Trainer</h1>
-        {!this.state.loggedIn &&
-        <Login setLoggedIn={this.setLoggedIn}></Login>
-        }
-        {this.state.loggedIn &&
+const home = (props) => {
+  return (
+    <div className='container-fluid text-center'>
+      <img src={eye} className='img-fluid' style={eyeImageStyle} />
+      <h2 className='display-2' style={welcomeStyle}>Welcome to  <br/> Lazy Eye Trainer</h2>
+      {!props.loggedIn &&
+        <Login loginFailed={props.loginFailed} setLoginFailed={props.setLoginFailed} setLoggedIn={props.setLoggedIn} setUser={props.setUser} user={props.user} password={props.password} confirmPassword={props.confirmPassword} setLoginInfo={props.setLoginInfo} ></Login>
+      }
+      {props.loggedIn &&
         <div >
           <h2 style={moduleStyle}>Please select a training module</h2>
-          <div >
-            <button style={moduleButtonStyle} type='button' className='btn btn-primary' onClick={() => {this.props.setPage('KeyboardPractice')}}>Keyboard Practice</button>
-            <button style={moduleButtonStyle} type='button' className='btn btn-secondary'onClick={() => {this.props.setPage('TargetPractice')}}>Target Practice</button>
-            <button style={moduleButtonStyle} type='button' className='btn btn-danger' onClick={this.props.setPage.bind(this, 'BrowserPractice')}>Browser Practice</button>
+          <div>
+            <button style={moduleButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.setPage('KeyboardPractice') }}>Keyboard Practice</button>
+            <button style={moduleButtonStyle} type='button' className='btn btn-secondary' onClick={() => { props.setPage('TargetPractice') }}>Target Practice</button>
+            <button style={moduleButtonStyle} type='button' className='btn btn-danger' onClick={props.setPage.bind(this, 'BrowserPractice')}>Browser Practice</button>
           </div>
         </div>
-        }
-      </div>
-    )
-  }
+      }
+    </div>
+  )
 }
 
 const welcomeStyle = {
@@ -49,18 +33,18 @@ const welcomeStyle = {
   fontFamily: 'Playfair Display SC'
 }
 const eyeImageStyle = {
-  maxWidth: '60%',
-  maxHeight: '60%',
+  maxWidth: '80%',
   objectFit: 'cover',
-  width: '700px',
-  height: '320px',
-  margin: '75px 25px 20px 25px'
+  width: '500px',
+  maxHeight: '220px',
+  marginTop: '30px'
 }
 const moduleStyle = {
   fontFamily: 'Playfair Display',
   textTransform: 'capitalize',
   fontSize: '40px',
-  color: '#adb5bd'
+  color: '#adb5bd',
+  marginBottom: '20px'
 }
 const moduleButtonStyle = {
   margin: '5px',
@@ -68,4 +52,4 @@ const moduleButtonStyle = {
   color: 'white',
   textShadow: '1px 1px 2px #404040'
 }
-export default Home;
+export default home;

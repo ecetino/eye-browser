@@ -11,12 +11,14 @@ const leaderboard =(props) => {
         </tr>
       </thead>
       <tbody>
-        {props.tableData.map((entry) => {
+        {props.tableData.map((entry, rank) => {
           return(
-            <tr>
-              <th scope='row'>{entry.rank}</th>
-              <td>{entry.username}</td>
-              <td>{entry.time}</td>
+            <tr key={entry.key}>
+              <th scope='row'>{rank +1 }</th>
+              <td>{entry.users}</td>
+              {props.time && <td>{(Math.round(entry.time * 100) / 100).toFixed(2)}</td>}
+              {props.tasksCompleted && <td>{entry.tasksCompleted}</td>}
+              {props.streak && <td>{entry.streak}</td>}
             </tr>
           )
         })}
@@ -29,10 +31,13 @@ const tableStyle = {
   backgroundColor: 'silver',
   position: 'relative',
   top: '150px',
-  right: '20%',
   color:'black',
   border: 'solid black 3px',
-  borderStyle: 'outset'
+  borderStyle: 'outset',
+  width: '250px',
+  textAlign: 'center',
+  right: '10%',
+  marginLeft: '47px'
 }
 
 export default leaderboard;

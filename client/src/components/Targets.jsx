@@ -8,7 +8,7 @@ const targets = (props) => {
         {!props.completed &&
           <div style={aboveTargetsStyle}>
             <button type='button' className='btn btn-primary' style={restartButtonStyle} onClick={props.reset}>Restart</button>
-            <div style={timeStyle}>{props.time} secs</div>
+            <div style={timeStyle}>{Math.floor(props.time/10)}. {props.time%10} secs</div>
           </div>
         }
         <div className='container-fluid' style={targetContainerStyle}>
@@ -42,13 +42,13 @@ const timeStyle = {
   top: '25px',
   left: '70%',
   fontSize: '50px',
-  width: 'auto'
+  width: '300px'
 }
 const aboveTargetsStyle = {
   position: 'absolute',
-  left: '20%',
+  left: '13%',
   paddingTop: '10px',
-  width: '500px'
+  width: '500px',
 }
 const restartButtonStyle = {
   position: 'relative',
@@ -62,9 +62,8 @@ const restartButtonStyle = {
 }
 const targetContainerStyle = {
   border: 'solid',
-  position: 'absolute',
-  top: '200px',
-  left: '10%',
+  position: 'relative',
+  top: '140px',
   backgroundColor: '#cdcbcb',
   borderColor: 'black',
   width: '825px',

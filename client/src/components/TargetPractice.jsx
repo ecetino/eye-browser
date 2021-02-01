@@ -3,7 +3,6 @@ import Targets from './Targets'
 import home from '../images/home.png';
 import target from '../images/target.png';
 import Leaderboard from './Leaderboard';
-import targetTableData from './sampleData/sampleTargetTableData'
 
 class TargetPractice extends React.Component {
   constructor(props) {
@@ -107,11 +106,11 @@ class TargetPractice extends React.Component {
   render() {
     return (
       <div className='container-fluid'>
-        <div className='row'>
-          <button style={homeButtonStyle} type='button' className='btn btn-secondary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home} /></button>
-        </div>
         <div className='row' align='center'>
-          <div className='col-9'>
+          <div className='col-1'>
+            <button style={homeButtonStyle} type='button' className='btn btn-secondary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home} /></button>
+          </div>
+          <div className='col-9' style={targetDisplayContainer}>
             {!this.state.ready &&
               <div style={notReadyTargetStyle}>
                 <div className='display-2'>Please Click Ready To<br />  Begin Target Practice <img src={target} style={sentenceTargetStyle} /></div>
@@ -136,6 +135,13 @@ class TargetPractice extends React.Component {
   }
 }
 
+const targetDisplayContainer = {
+  maxWidth: '900px',
+  minWidth: '900px',
+  height: '600px'
+}
+
+
 const tryAgainButton = {
   marginTop: '30px',
   width: '270px',
@@ -154,15 +160,16 @@ const sentenceTargetStyle = {
   marginBottom: '20px'
 }
 const notReadyTargetStyle = {
-  position: 'absolute',
-  top: '220px',
-  left: '12%',
+  position: 'relative',
+  top: '150px',
   textShadow: '0px 1px 1px #404040'
 }
 const homeButtonStyle = {
+  position: 'fixed',
+  left: '15px',
   padding: '20px',
   fontSize: '40px',
-  margin: '20px',
+  marginTop: '10px',
   width: '100px'
 }
 const homeImgStyle = {

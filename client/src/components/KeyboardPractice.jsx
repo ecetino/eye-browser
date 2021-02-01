@@ -2,7 +2,6 @@ import React from 'react';
 import Keyboard from './Keyboard';
 import home from '../images/home.png';
 import Leaderboard from './Leaderboard';
-import targetTableData from './sampleData/sampleTargetTableData'
 
 const faker = require('faker');
 
@@ -104,13 +103,13 @@ class KeyboardPractice extends React.Component {
   render() {
     return (
       <div className='container-fluid' >
-        <div className='row'>
-          <div>
-            <button style={homeButtonStyle} type='button' className='btn btn-secondary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home} /></button>
-          </div>
-        </div>
         <div className='row' align='center'>
-          <div className='col-9' >
+          <div className='col-1'>
+            <div className='d-inline'>
+              <button style={homeButtonStyle} type='button' className='btn btn-secondary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home} /></button>
+            </div>
+          </div>
+          <div className='col-8' >
             <div className='text-center' style={containerStyle}>
               <div style={nonKeyboardStyle}>
                 <label>
@@ -167,9 +166,14 @@ const inputStyle = {
   maxWidth: '480px'
 }
 const containerStyle = {
-  align: 'center'
+  align: 'center',
+  position: 'relative',
+  top: '18px'
 }
 const homeButtonStyle = {
+  position: 'fixed',
+  top: '0px',
+  left: '0px',
   textAlign: 'left',
   padding: '20px',
   margin: '20px',

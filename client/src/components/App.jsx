@@ -34,7 +34,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.setPage('TargetPractice');
+    this.setPage('BrowserPractice');
     this.getKeyboardRecords();
     this.getTargetRecords();
     this.getBrowserRecords();

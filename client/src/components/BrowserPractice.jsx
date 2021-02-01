@@ -3,22 +3,30 @@ import home from '../images/home.png';
 import shades from '../images/shades.png'
 import { Carousel, Dropdown, Button, ButtonGroup, Breadcrumb } from 'react-bootstrap';
 import Keyboard from './Keyboard';
-import H4HModal from './H4HModal'
+import H4HModal from './H4HModal';
+import AddToCartModal from './AddToCartModal';
 import Leaderboard from './Leaderboard';
-import targetTableData from './sampleData/sampleTargetTableData'
 
 class BrowserPractice extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalShow: false
+      modalShowH4H: false,
+      modalShowAddCart: false,
     }
-    this.toggleModalShow = this.toggleModalShow.bind(this);
+    this.toggleModalShowH4H = this.toggleModalShowH4H.bind(this);
+    this.toggleModalShowAddCart = this.toggleModalShowAddCart.bind(this);
   }
 
-  toggleModalShow() {
+  toggleModalShowAddCart() {
     this.setState({
-      modalShow: !this.state.modalShow
+      modalShowAddCart: !this.state.modalShowAddCart
+    })
+  }
+
+  toggleModalShowH4H() {
+    this.setState({
+      modalShowH4H: !this.state.modalShowH4H
     })
   }
 
@@ -82,7 +90,7 @@ class BrowserPractice extends React.Component {
                     <Dropdown.Item >Sporty</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-                <button style={purchaseStyle} type='button' className='btn btn-warning d-block'>Purchase</button>
+                <button style={purchaseStyle} type='button' onClick={() => { this.toggleModalShowAddCart()}} className='btn btn-warning d-block'>Add to Cart</button>
                 <div style={productDetailsStyle}>
                   <b>Product Details</b>
                   <dl className='mb-0  row'>
@@ -107,8 +115,7 @@ class BrowserPractice extends React.Component {
                 <div>
                   <b>Shades for Humanity</b>
                   <dl className='mb-1  row'>
-                    <dd className='col-sm-12'>Round up at checkout to donate towards<br /> Habitat for Humanity<br /><div className='text-info'><u onClick={() => { this.toggleModalShow() }} >Click here to learn more</u></div></dd>
-
+                    <dd className='col-sm-12'>Round up at checkout to donate towards<br /> Habitat for Humanity<br /><div className='text-info'><u onClick={() => { this.toggleModalShowH4H()}} >Click here to learn more</u></div></dd>
                   </dl>
                 </div>
               </div>
@@ -124,7 +131,8 @@ class BrowserPractice extends React.Component {
                 />
               </div>
             </div>
-            <H4HModal modalShow={this.state.modalShow} toggleModalShow={this.toggleModalShow}></H4HModal>
+            <H4HModal show={this.state.modalShowH4H} onHide={this.toggleModalShowH4H}></H4HModal>
+            <AddToCartModal show={this.state.modalShowAddCart} onHide={this.toggleModalShowAddCart}></AddToCartModal>
           </div>
         </div>
       </div>
@@ -212,13 +220,13 @@ const webpageStyle = {
   border: 'solid',
   borderColor: 'black',
   width: '80%',
-  height: '800px',
+  height: '700px',
   backgroundColor: 'white',
   position: 'relative',
   minWidth: '900px',
   maxWidth: '920px',
-  left: '5%',
-  top: '-10%',
+  left: '20%',
+  top: '-13%',
 }
 const homeButtonStyle = {
   padding: '20px',
@@ -226,8 +234,8 @@ const homeButtonStyle = {
   margin: '10px 00px'
 }
 const homeImgStyle = {
-  width: '70px',
-  height: '70px'
+  width: '60px',
+  height: '60px'
 }
 
 export default BrowserPractice;

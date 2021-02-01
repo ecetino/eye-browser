@@ -30,14 +30,14 @@ const leaderboard =(props) => {
 const tableStyle = {
   backgroundColor: 'silver',
   position: 'relative',
-  top: '100px',
+  top: '150px',
   color:'black',
   border: 'solid black 3px',
   borderStyle: 'outset',
   width: '250px',
   textAlign: 'center',
-  right: '30%',
-  marginLeft: '35px'
+  right: '10%',
+  marginLeft: '47px'
 }
 
 export default leaderboard;

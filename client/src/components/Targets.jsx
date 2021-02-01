@@ -46,9 +46,9 @@ const timeStyle = {
 }
 const aboveTargetsStyle = {
   position: 'absolute',
-  left: '20%',
+  left: '13%',
   paddingTop: '10px',
-  width: '500px'
+  width: '500px',
 }
 const restartButtonStyle = {
   position: 'relative',
@@ -62,9 +62,8 @@ const restartButtonStyle = {
 }
 const targetContainerStyle = {
   border: 'solid',
-  position: 'absolute',
-  top: '200px',
-  left: '15%',
+  position: 'relative',
+  top: '140px',
   backgroundColor: '#cdcbcb',
   borderColor: 'black',
   width: '825px',

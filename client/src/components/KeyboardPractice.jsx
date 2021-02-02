@@ -85,6 +85,8 @@ class KeyboardPractice extends React.Component {
         entryResponseColor: 'green',
       })
     } else {
+      this.props.addKeyboardRec(this.state.streak);
+      this.props.getKeyboardRecords();
       this.setState({
         correct: false,
         streak: 0,

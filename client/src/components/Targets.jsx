@@ -8,7 +8,7 @@ const targets = (props) => {
         {!props.completed &&
           <div style={aboveTargetsStyle}>
             <button type='button' className='btn btn-primary' style={restartButtonStyle} onClick={props.reset}>Restart</button>
-            <div style={timeStyle}>{Math.floor(props.time/10)}. {props.time%100} secs</div>
+            <div style={timeStyle}>{Math.floor(props.time/10)}. {props.time%10} secs</div>
           </div>
         }
         <div className='container-fluid' style={targetContainerStyle}>

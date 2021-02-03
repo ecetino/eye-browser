@@ -1,7 +1,7 @@
 import React from 'react';
 import Keyboard from './Keyboard';
 import home from '../images/home.png';
-import Leaderboard from './Leaderboard';
+import KeyboardLeaderboard from './KeyboardLeaderboard';
 
 const faker = require('faker');
 
@@ -132,7 +132,7 @@ class KeyboardPractice extends React.Component {
             </div>
           </div>
           <div className='col'>
-            <Leaderboard streak={true} measure='Best Streak' tableData={this.props.keyboardTableData}></Leaderboard>
+            <KeyboardLeaderboard streak={true} measure='Best Streak' tableData={this.props.keyboardTableData}></KeyboardLeaderboard>
           </div>
         </div>
       </div>

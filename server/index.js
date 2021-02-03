@@ -31,17 +31,6 @@ app.get('/targetRecs', async (req, res) => {
   }
 })
 
-app.get('/browserRecs', async (req, res) => {
-  try {
-    const queryStr = 'FOR browserRec in browserRecords SORT browserRec.tasksCompleted DESC LIMIT 10 RETURN browserRec';
-    const recs = await db.query(queryStr);
-    const response = await recs.all();
-    res.send(response);
-  } catch (err) {
-    console.error(err);
-  }
-})
-
 app.get('/userAuth/:user', async (req, res) => {
   try {
     const user = req.params.user;

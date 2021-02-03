@@ -17,7 +17,6 @@ class App extends React.Component {
       loginFailed: false,
       keyboardRecordsArr: [],
       targetRecordsArr: [],
-      browserRecordsArr: [],
     }
     this.setPage = this.setPage.bind(this);
     this.setUser = this.setUser.bind(this);
@@ -26,7 +25,6 @@ class App extends React.Component {
     this.setLoggedIn = this.setLoggedIn.bind(this);
     this.getKeyboardRecords = this.getKeyboardRecords.bind(this);
     this.getTargetRecords = this.getTargetRecords.bind(this);
-    this.getBrowserRecords = this.getBrowserRecords.bind(this);
     this.testLogin = this.testLogin.bind(this);
     this.addTargetRec = this.addTargetRec.bind(this);
     this.addKeyboardRec = this.addKeyboardRec.bind(this);
@@ -36,7 +34,6 @@ class App extends React.Component {
     this.setPage('home');
     this.getKeyboardRecords();
     this.getTargetRecords();
-    this.getBrowserRecords();
   }
 
   setPage(page) {
@@ -98,17 +95,6 @@ class App extends React.Component {
     }
   }
 
-  async getBrowserRecords() {
-    try {
-      const recs = await Axios.get('/browserRecs');
-      this.setState({
-        browserRecordsArr: recs.data
-      })
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
   async testLogin() {
     try {
       const user = this.state.user;
@@ -131,7 +117,7 @@ class App extends React.Component {
     try {
       const result = await Axios.post('/addTargetRec', {
          user: this.state.user,
-         time: `${Math.floor(time/10)}.${time%100}`
+         time: `${Math.floor(time/10)}.${time%10}`
         });
     } catch (err) {
       console.error(err);
@@ -151,7 +137,7 @@ class App extends React.Component {
 
   render() {
     if (this.state.currentPage === 'BrowserPractice') {
-      return <BrowserPractice browserTableData={this.state.browserRecordsArr} setPage={this.setPage}></BrowserPractice>
+      return <BrowserPractice setPage={this.setPage}></BrowserPractice>
     } else if (this.state.currentPage === 'KeyboardPractice') {
       return <KeyboardPractice getKeyboardRecords={this.getKeyboardRecords} addKeyboardRec={this.addKeyboardRec} keyboardTableData={this.state.keyboardRecordsArr} setPage={this.setPage}></KeyboardPractice>
     } else if (this.state.currentPage === 'TargetPractice') {

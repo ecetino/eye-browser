@@ -5,7 +5,6 @@ import { Carousel, Dropdown, Button, ButtonGroup, Breadcrumb } from 'react-boots
 import Keyboard from './Keyboard';
 import H4HModal from './H4HModal';
 import AddToCartModal from './AddToCartModal';
-import Leaderboard from './Leaderboard';
 
 class BrowserPractice extends React.Component {
   constructor(props) {

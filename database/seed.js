@@ -40,28 +40,16 @@ targetRecordsCol.create()
     console.error('err when creating targetRecordsCol: ', err)
   });
 
-const browserRecordsCol = db.collection('browserRecords');
-
-browserRecordsCol.create()
-  .then(() => {
-    console.log('browserRecordsCol created');
-  })
-  .catch((err) => {
-    console.error('err when creating browserRecordsCol: ', err)
-  });
-
 const users = ['tom', 'sammyG', 'slayer67', 'orange', 'fireRed', 'theWiz', 'susanahBanana', 'nathanV', 'fernTheFern', 'kaido'];
 
 const sampleUserRecords = [];
 const sampleKeyboardRecords = [];
 const sampleTargetRecords = [];
-const sampleBrowserRecords = [];
 
 for (i = 0; i < 10; i++) {
   sampleUserRecords.push({ users: users[i], password: 'password'});
   sampleKeyboardRecords.push({ users: users[i], streak: Math.ceil(Math.random() * 7 )});
   sampleTargetRecords.push({ users: users[i], time: Math.random()* 15});
-  sampleBrowserRecords.push({ users: users[i], tasksCompleted: Math.ceil(Math.random() * 6)});
 };
 
 usersCol.import(sampleUserRecords)
@@ -86,12 +74,4 @@ targetRecordsCol.import(sampleTargetRecords)
   })
   .catch((err) => {
     console.log('import target failed:', err);
-  })
-
-browserRecordsCol.import(sampleBrowserRecords)
-  .then((result) => {
-    console.log('import browser complete:', result);
-  })
-  .catch((err) => {
-    console.log('import browser failed:', err);
   })

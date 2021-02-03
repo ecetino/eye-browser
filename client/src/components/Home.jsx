@@ -11,7 +11,7 @@ const home = (props) => {
       <img src={eye} className='img-fluid' style={eyeImageStyle} />
       <h2 className='display-2' style={welcomeStyle}>Welcome to  <br/> Lazy Eye Trainer</h2>
       {!props.loggedIn &&
-        <Login loginFailed={props.loginFailed} setLoginFailed={props.setLoginFailed} setLoggedIn={props.setLoggedIn} setUser={props.setUser} user={props.user} password={props.password} confirmPassword={props.confirmPassword} setLoginInfo={props.setLoginInfo} ></Login>
+        <Login testLogin={props.testLogin} loginFailed={props.loginFailed} setLoginFailed={props.setLoginFailed} setLoggedIn={props.setLoggedIn} setUser={props.setUser} user={props.user} password={props.password} confirmPassword={props.confirmPassword} setLoginInfo={props.setLoginInfo} ></Login>
       }
       {props.loggedIn &&
         <div >

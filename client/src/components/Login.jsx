@@ -18,7 +18,7 @@ const login = (props) => {
       {props.loginFailed &&
         <h5 className="text-danger">Login not recognized. Please try again.</h5>
       }
-      <button type='button' className='btn btn-info' style={loginButtonStyle}>Login</button>
+      <button type='button' onClick={props.testLogin} className='btn btn-info' style={loginButtonStyle}>Login</button>
       <button type='button' className='btn btn-danger' onClick={() => setModalShow(true)} style={signUpButtonStyle}>Sign Up</button>
       <SignUpModal show={modalShow} onHide={() => { setModalShow(false) }} />
       <br />

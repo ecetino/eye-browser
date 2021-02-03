@@ -1,8 +1,11 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const db = require('../database/index.js');
 const port = 3000;
 
+db.useDatabase('lazy-eye-trainer');
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.get('/keyboardRecs', async (req, res) => {
@@ -28,25 +31,58 @@ app.get('/targetRecs', async (req, res) => {
   }
 })
 
-app.get('/browserRecs', async (req, res) => {
+app.get('/userAuth/:user', async (req, res) => {
   try {
-    const queryStr = 'FOR browserRec in browserRecords SORT browserRec.tasksCompleted DESC LIMIT 10 RETURN browserRec';
+    const user = req.params.user;
+    const { password } = req.query;
+    const queryStr = `FOR u in users FILTER u.users == '${user}' RETURN u`;
     const recs = await db.query(queryStr);
     const response = await recs.all();
-    res.send(response);
+    if (!response[0]) {
+      res.send(false);
+    } else if (response[0].password !== password) {
+      res.send(false);
+    } else {
+      res.send(true);
+    }
   } catch (err) {
-    console.error(err);
+    console.log(err);
   }
 })
 
-app.get('/userAuth', async (req, res) => {
+app.post('/addUser', async (req, res) => {
   try {
-    const queryStr = 'FOR browserRec in browserRecords return browserRec';
+    const { user, password } = req.body;
+    const queryStr = `INSERT { users: '${user}', password: '${password}'} INTO users`;
     const recs = await db.query(queryStr);
-    const response = await recs.all();
-    res.send(response);
+    res.send(true);
   } catch (err) {
     console.error(err);
+    res.send(false);
+  }
+})
+
+app.post('/addTargetRec', async (req, res) => {
+  try {
+    const { user, time } = req.body;
+    const queryStr = `INSERT { users: '${user}', time: ${time}} INTO targetRecords`;
+    const recs = await db.query(queryStr);
+    res.send(true);
+  } catch (err) {
+    console.error(err);
+    res.send(false);
+  }
+})
+
+app.post('/addKeyboardRec', async (req, res) => {
+  try {
+    const { user, streak } = req.body;
+    const queryStr = `INSERT { users: '${user}', streak: ${streak} } INTO keyboardRecords`;
+    const recs = await db.query(queryStr);
+    res.send(true);
+  } catch (err) {
+    console.error(err);
+    res.send(false);
   }
 })
 

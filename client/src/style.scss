@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
 
-$primary: #95adb8;
+
+$primary: #A1C5E2;
 $secondary: silver;
 $warning: rgb(238, 126, 52);
-$info:#457b9d;
-$success: #457b9d;
+$info:#A1C5E2;
+$success: #A1C5E2;
 $danger: #e63946;
-$body-bg: #708ca3;
+$body-bg: #245478;
 $body-color: #FFF;
-$font-family-sans-serif: 'Playfair Display';
+$font-family-sans-serif: 'Roboto';
 $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1700px);
 $container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1640px);
 $enable-responsive-font-sizes: true;
 $btn-font-size: 30px;
-$btn-font-family: 'Playfair Display';
+$btn-font-family: 'Roboto';
 
 @import '~bootstrap/scss/bootstrap.scss';

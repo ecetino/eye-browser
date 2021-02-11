@@ -5,12 +5,17 @@ import TargetPractice from './TargetPractice';
 import Login from './Login';
 import eye from '../images/4432.svg';
 
+
 const home = (props) => {
   return (
     <div style={homeContainer}>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet"></link>
       <div style={homeImageContainer}>
+        <div style={welcomeTextStyle}>
+          <div style={{...welcomeTextStyle, marginRight: '10px', fontWeight: '100'}}>WELCOME TO</div>
+          <div style={{...welcomeTextStyle, color: '#245478',}}>EYE BROWSER</div>
+        </div>
         <img src={eye} style={eyeImageStyle} />
-        <h2 className='display-2' style={welcomeStyle}>Welcome to  <br /> Lazy Eye Trainer</h2>
       </div>
       <div style={homeLoginContainer}>
         {!props.loggedIn &&
@@ -18,59 +23,73 @@ const home = (props) => {
         }
         {props.loggedIn &&
           <div >
-            <h2 style={moduleStyle}>Please select a training module</h2>
+            <div style={moduleStyle}>Please select a training module</div>
             <div>
-              <button style={moduleButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.setPage('KeyboardPractice') }}>Keyboard Practice</button>
-              <button style={moduleButtonStyle} type='button' className='btn btn-secondary' onClick={() => { props.setPage('TargetPractice') }}>Target Practice</button>
-              <button style={moduleButtonStyle} type='button' className='btn btn-danger' onClick={props.setPage.bind(this, 'BrowserPractice')}>Browser Practice</button>
+              <button style={moduleButtonStyle} onClick={() => { props.setPage('KeyboardPractice') }}>Keyboard Practice</button>
+              <button style={{ ...moduleButtonStyle, backgroundColor: '#C0C0C0' }} onClick={() => { props.setPage('TargetPractice') }}>Target Practice</button>
+              <button style={{ ...moduleButtonStyle, backgroundColor: '#E63946' }} onClick={props.setPage.bind(this, 'BrowserPractice')}>Browser Practice</button>
             </div>
           </div>
         }
       </div>
-
     </div>
   )
 }
 
 const homeContainer = {
   display: 'grid',
-  gridTemplateRows: 'auto',
+  gridTemplateRows: '1fr',
   gridTemplateColumns: '2fr 1fr',
-  alignContent: 'center'
+  alignContent: 'center',
+  height: '100vh',
+  width: '100wh',
+  textAlign: 'center',
+  alignItems: 'center',
+  fontFamily: 'Roboto'
 }
 
 const homeImageContainer = {
-  gridColumnStart: 'col-start 0',
+  display: 'flex',
+  flexDirection: 'column',
+  backgroundColor: '#fff',
+  height: '100vh',
+  alignItems: 'center',
+  justifyContent: 'center'
 }
 
 const homeLoginContainer = {
-  gridColumnStart: 'col-start 1',
+  display: 'flex',
+  flexDirection: 'column',
+  backgroundColor: '#245478',
+  height: '100vh',
+  alignItems: 'center',
+  justifyContent: 'center'
 }
 
-const welcomeStyle = {
-  textShadow: '2px 2px 4px #404040',
-  paddingBottom: '10px',
-  fontFamily: 'Playfair Display SC'
+const welcomeTextStyle = {
+  color: '#555555',
+  fontSize: '3vw',
+  display: 'flex',
+  fontWeight: '300'
 }
+
 const eyeImageStyle = {
-  maxWidth: '80%',
-  objectFit: 'cover',
-  width: '400px',
-  maxHeight: '400px',
-  marginTop: '30px',
-  display: 'inline'
+  width: '45vw'
 }
+
 const moduleStyle = {
-  fontFamily: 'Playfair Display',
   textTransform: 'capitalize',
-  fontSize: '40px',
-  color: '#adb5bd',
-  marginBottom: '20px'
+  fontSize: '2.52vw',
 }
+
 const moduleButtonStyle = {
   margin: '5px',
-  fontFamily: 'Playfair Display',
   color: 'white',
-  textShadow: '1px 1px 2px #404040'
+  textShadow: '1px 1px 2px #404040',
+  fontSize: '2vw',
+  backgroundColor: '#A1C5E2',
+  borderRadius: '8px',
+  padding: '5px 20px'
 }
+
 export default home;

@@ -1,6 +1,6 @@
 const db = require('../database/index.js');
 
-db.createDatabase('lazy-eye-trainer')
+db.createDatabase('eye-browser')
   .then(() => {
     console.log('db created');
   })
@@ -8,7 +8,7 @@ db.createDatabase('lazy-eye-trainer')
     console.error('err when creating db: ', err)
   });
 
-db.useDatabase('lazy-eye-trainer');
+db.useDatabase('eye-browser');
 
 const usersCol = db.collection('users');
 
@@ -40,7 +40,7 @@ targetRecordsCol.create()
     console.error('err when creating targetRecordsCol: ', err)
   });
 
-const users = ['tom', 'sammyG', 'slayer67', 'orange', 'fireRed', 'theWiz', 'susanahBanana', 'nathanV', 'fernTheFern', 'kaido'];
+const users = ['tom', 'sammyG', 'slayer67', 'orange', 'fireRed', 'theWiz', 'suzieB', 'nathanV', 'fernTheFern', 'kaido'];
 
 const sampleUserRecords = [];
 const sampleKeyboardRecords = [];

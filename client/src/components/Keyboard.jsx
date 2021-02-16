@@ -16,77 +16,76 @@ const keyboard = (props) => {
   } else {
     if (props.caps === false && props.nums === false) {
       return (
-        <div className='container text-center' style={keyboardContainerStyle}>
+        <div style={keyboardContainerStyle}>
           <div>
             {lowerCaseKeys[0].map((key) =>
-              <button style={keyboardButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
+              <button style={keyboardButtonStyle} onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
             )}
           </div>
           <div>
             {lowerCaseKeys[1].map((key) =>
-              <button style={keyboardButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
+              <button style={keyboardButtonStyle} onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
             )}
           </div>
           <div>
-            <button style={capsLockButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress('capsLock') }} key={capsLock}><img src={capsLock} style={capsLockImgStyle}></img></button>
+            <button style={capsLockButtonStyle} onClick={() => { props.keyPress('capsLock') }} key={capsLock}><img src={capsLock} style={capsLockImgStyle}></img></button>
             {lowerCaseKeys[2].map((key) =>
-              <button style={keyboardButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
+              <button style={keyboardButtonStyle} onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
             )}
-            <button style={backspaceButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress('backspace') }} key={backspace}><img src={backspace} style={backspaceImgStyle}></img></button>
+            <button style={backspaceButtonStyle} onClick={() => { props.keyPress('backspace') }} key={backspace}><img src={backspace} style={backspaceImgStyle}></img></button>
           </div>
           <div>
-            <button style={switchButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress('123') }} key='123'>123</button>
-            <button style={spacebarButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress('spacebar') }} key={spacebar}><img src={spacebar} style={spacebarImgStyle}></img></button>
-            <button style={exitKeyboardButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress('exitKeyboard') }} key={exitKeyboard}><img src={exitKeyboard} style={exitKeyboardImgStyle}></img></button>
-
+            <button style={switchButtonStyle} onClick={() => { props.keyPress('123') }} key='123'>123</button>
+            <button style={spacebarButtonStyle} onClick={() => { props.keyPress('spacebar') }} key={spacebar}><img src={spacebar} style={spacebarImgStyle}></img></button>
+            <button style={exitKeyboardButtonStyle} onClick={() => { props.keyPress('exitKeyboard') }} key={exitKeyboard}><img src={exitKeyboard} style={exitKeyboardImgStyle}></img></button>
           </div>
         </div>
       )
     } else if (props.caps === true && props.nums === false) {
       return (
-        <div className='container-fluid text-center' style={keyboardContainerStyle}>
+        <div style={keyboardContainerStyle}>
           <div>
             {upperCaseKeys[0].map((key) =>
-              <button style={keyboardButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
+              <button style={keyboardButtonStyle} onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
             )}
           </div>
           <div>
             {upperCaseKeys[1].map((key) =>
-              <button style={keyboardButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
+              <button style={keyboardButtonStyle} onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
             )}
           </div>
           <div>
-            <button style={capsLockButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress('capsLock') }} key={capsLock}><img src={capsLock} style={capsLockImgStyle}></img></button>
+            <button style={capsLockButtonStyle} onClick={() => { props.keyPress('capsLock') }} key={capsLock}><img src={capsLock} style={capsLockImgStyle}></img></button>
             {upperCaseKeys[2].map((key) =>
-              <button style={keyboardButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
+              <button style={keyboardButtonStyle} onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
             )}
-            <button style={backspaceButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress('backspace') }} key={backspace}><img src={backspace} style={backspaceImgStyle}></img></button>
+            <button style={backspaceButtonStyle} onClick={() => { props.keyPress('backspace') }} key={backspace}><img src={backspace} style={backspaceImgStyle}></img></button>
           </div>
           <div>
-            <button style={switchButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress('123') }} key='123'>123</button>
-            <button style={spacebarButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress('spacebar') }} key={spacebar}><img src={spacebar} style={spacebarImgStyle}></img></button>
-            <button style={exitKeyboardButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress('exitKeyboard') }} key={exitKeyboard}><img src={exitKeyboard} style={exitKeyboardImgStyle}></img></button>
+            <button style={switchButtonStyle} onClick={() => { props.keyPress('123') }} key='123'>123</button>
+            <button style={spacebarButtonStyle} onClick={() => { props.keyPress('spacebar') }} key={spacebar}><img src={spacebar} style={spacebarImgStyle}></img></button>
+            <button style={exitKeyboardButtonStyle} onClick={() => { props.keyPress('exitKeyboard') }} key={exitKeyboard}><img src={exitKeyboard} style={exitKeyboardImgStyle}></img></button>
           </div>
         </div>
       )
     } else {
       return (
-        <div className='container-fluid text-center' style={numKeyboardContainerStyle}>
+        <div style={numKeyboardContainerStyle}>
         <div>
           {nums[0].map((key) =>
-            <button style={numKeyboardButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
+            <button style={numKeyboardButtonStyle} onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
           )}
         </div>
         <div>
           {nums[1].map((key) =>
-            <button style={numKeyboardButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
+            <button style={numKeyboardButtonStyle} onClick={() => { props.keyPress(key) }} key={key}>{key}</button>
           )}
         </div>
         <div>
-          <button style={numSwitchButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress('abc') }} key='abc'>abc</button>
-          <button style={numSpacebarButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress('spacebar') }} key={spacebar}><img src={spacebar} style={spacebarImgStyle}></img></button>
-          <button style={numBackspaceButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress('backspace') }} key={backspace}><img src={backspace} style={backspaceImgStyle}></img></button>
-          <button style={numExitKeyboardButtonStyle} type='button' className='btn btn-primary' onClick={() => { props.keyPress('exitKeyboard') }} key={exitKeyboard}><img src={exitKeyboard} style={exitKeyboardImgStyle}></img></button>
+          <button style={numSwitchButtonStyle} onClick={() => { props.keyPress('abc') }} key='abc'>abc</button>
+          <button style={numSpacebarButtonStyle} onClick={() => { props.keyPress('spacebar') }} key={spacebar}><img src={spacebar} style={spacebarImgStyle}></img></button>
+          <button style={numBackspaceButtonStyle} onClick={() => { props.keyPress('backspace') }} key={backspace}><img src={backspace} style={backspaceImgStyle}></img></button>
+          <button style={numExitKeyboardButtonStyle} onClick={() => { props.keyPress('exitKeyboard') }} key={exitKeyboard}><img src={exitKeyboard} style={exitKeyboardImgStyle}></img></button>
         </div>
       </div>
       )
@@ -95,98 +94,144 @@ const keyboard = (props) => {
 };
 
 const keyboardContainerStyle = {
-  backgroundColor: 'black',
-  marginTop: '20px',
-  width: '900px',
-  minWidth: '900px',
-  padding: '20px'
+  backgroundColor: '#fff',
+  marginTop: '1vh',
+  width: '68vw',
+  padding: '1vw',
+  borderRadius: '4px',
+  textAlign: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
 }
 const keyboardButtonStyle = {
-  width: '70px',
-  height: '70px',
-  margin: '8px',
-  fontSize: '40px',
-  color: 'black'
+  width: 'clamp(1vw, 6vw, 8vw)',
+  height: 'clamp(1vw, 6vw, 8vw)',
+  margin: '0.3vw',
+  fontSize: 'clamp(1vw, 3vw, 6vw)',
+  color: 'black',
+  borderRadius: '4px',
+  backgroundColor: '#C8E1F9',
+  borderColor: 'rgb(200 225 249 / 0%)'
 }
 const switchButtonStyle = {
-  width: '110px',
-  height: '70px',
-  margin: '8px',
-  fontSize: '40px',
-  color: 'black'
+  width: 'clamp(1vw, 9.25vw, 15vw)',
+  height: 'clamp(1vw, 6vw, 8vw)',
+  margin: '0.3vw',
+  fontSize: 'clamp(1vw, 3vw, 6vw)',
+  color: 'black',
+  borderRadius: '4px',
+  backgroundColor: '#C8E1F9',
+  borderColor: 'rgb(200 225 249 / 0%)'
 }
 const spacebarButtonStyle = {
-  width: '585px',
-  height: '70px',
-  margin: '8px'
+  width: 'clamp(30vw, 45.6vw, 70vw)',
+  height: 'clamp(1vw, 6vw, 8vw)',
+  margin: '0.3vw',
+  borderRadius: '4px',
+  fontSize: 'clamp(1vw, 3vw, 6vw)',
+  backgroundColor: '#C8E1F9',
+  borderColor: 'rgb(200 225 249 / 0%)'
 }
 const spacebarImgStyle = {
-  width: '60px',
-  height: '40px',
-  paddingTop: '10px',
+  width: 'clamp(1vw, 5vw, 6vw)',
+  height: 'clamp(1vw, 3vw, 6vw)',
+  paddingTop: '0.8vh',
+  borderRadius: '4px'
 }
 const capsLockButtonStyle = {
-  width: '110px',
-  height: '70px',
-  margin: '8px'
+  width: 'clamp(1vw, 9.25vw, 15vw)',
+  height: 'clamp(1vw, 6vw, 8vw)',
+  fontSize: 'clamp(1vw, 3vw, 6vw)',
+  margin: '0.3vw',
+  borderRadius: '4px',
+  backgroundColor: '#C8E1F9',
+  borderColor: 'rgb(200 225 249 / 0%)'
 }
 const capsLockImgStyle = {
-  width: '45px',
-  height: '45px',
+  width: 'clamp(1vw, 3vw, 6vw)',
+  height: 'clamp(1vw, 3vw, 6vw)',
 }
 const exitKeyboardButtonStyle = {
-  width: '110px',
-  height: '70px',
-  margin: '8px',
+  width: 'clamp(1vw, 9.25vw, 15vw)',
+  height: 'clamp(1vw, 6vw, 8vw)',
+  margin: '0.3vw',
+  borderRadius: '4px',
+  fontSize: 'clamp(1vw, 3vw, 6vw)',
+  backgroundColor: '#C8E1F9',
+  borderColor: 'rgb(200 225 249 / 0%)'
 }
 const exitKeyboardImgStyle = {
-  width: '45px',
-  height: '45px',
-  margin: '8px'
+  width: 'clamp(1vw, 3vw, 6vw)',
+  height: 'clamp(1vw, 3vw, 6vw)',
 }
 const backspaceButtonStyle = {
-  width: '110px',
-  height: '70px',
-  margin: '8px'
+  width: 'clamp(1vw, 9.25vw, 15vw)',
+  height: 'clamp(1vw, 6vw, 8vw)',
+  margin: '0.3vw',
+  fontSize: 'clamp(1vw, 3vw, 6vw)',
+  borderRadius: '4px',
+  justifySelf: 'center',
+  backgroundColor: '#C8E1F9',
+  borderColor: 'rgb(200 225 249 / 0%)'
 }
 const backspaceImgStyle = {
-  width: '45px',
-  height: '45px'
+  width: 'clamp(1vw, 3vw, 6vw)',
+  height: 'clamp(1vw, 3vw, 6vw)',
 }
 
 const numKeyboardContainerStyle = {
-  backgroundColor: 'black',
-  maxWidth: '740px',
-  minWidth: '740px',
-  padding: '20px 0px'
+  backgroundColor: '#fff',
+  padding: '1vw',
+  borderRadius: '4px',
+  marginTop: '1vh'
 }
+
 const numKeyboardButtonStyle = {
-  width: '120px',
-  height: '100px',
-  margin: '10px',
-  fontSize: '50px',
-  color: 'black'
+  width: 'clamp(1vw, 7vw, 8vw)',
+  height: 'clamp(1vw, 7vw, 8vw)',
+  margin: '0.5vw',
+  fontSize: 'clamp(1vw, 3vw, 6vw)',
+  color: 'black',
+  borderRadius: '4px',
+  backgroundColor: '#C8E1F9',
+  borderColor: 'rgb(200 225 249 / 0%)'
 }
 const numSwitchButtonStyle = {
-  width: '120px',
-  height: '100px',
-  margin: '10px',
-  fontSize: '50px',
-  color: 'black'
+  width: 'clamp(1vw, 7vw, 8vw)',
+  height: 'clamp(1vw, 7vw, 8vw)',
+  margin: '0.5vw',
+  fontSize: 'clamp(1vw, 3vw, 6vw)',
+  color: 'black',
+  borderRadius: '4px',
+  backgroundColor: '#C8E1F9',
+  borderColor: 'rgb(200 225 249 / 0%)'
 }
 const numSpacebarButtonStyle = {
-  width: '260px',
-  height: '100px',
-  margin: '10px'
+  width: 'clamp(1vw, 15vw, 15vw)',
+  height: 'clamp(1vw, 7vw, 8vw)',
+  margin: '0.5vw',
+  borderRadius: '4px',
+  backgroundColor: '#C8E1F9',
+  borderColor: 'rgb(200 225 249 / 0%)',
+  fontSize: 'clamp(1vw, 3vw, 6vw)',
 }
 const numBackspaceButtonStyle = {
-  width: '120px',
-  height: '100px',
-  margin: '10px'
+  width: 'clamp(1vw, 7vw, 8vw)',
+  height: 'clamp(1vw, 7vw, 8vw)',
+  margin: '0.5vw',
+  borderRadius: '4px',
+  backgroundColor: '#C8E1F9',
+  borderColor: 'rgb(200 225 249 / 0%)',
+  fontSize: 'clamp(1vw, 3vw, 6vw)',
 }
 const numExitKeyboardButtonStyle = {
-  width: '120px',
-  height: '100px',
-  margin: '10px',
+  width: 'clamp(1vw, 7vw, 8vw)',
+  height: 'clamp(1vw, 7vw, 8vw)',
+  margin: '0.5vw',
+  borderRadius: '4px',
+  backgroundColor: '#C8E1F9',
+  borderColor: 'rgb(200 225 249 / 0%)',
+  fontSize: 'clamp(1vw, 3vw, 6vw)',
 }
 export default keyboard;

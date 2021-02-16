@@ -4,7 +4,7 @@ const app = express();
 const db = require('../database/index.js');
 const port = 3000;
 
-db.useDatabase('lazy-eye-trainer');
+db.useDatabase('eye-browser');
 app.use(bodyParser.json());
 app.use(express.static('public'));
 

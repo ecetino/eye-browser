@@ -1,18 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
 
-$primary: #95adb8;
-$secondary: silver;
-$warning: rgb(238, 126, 52);
-$info:#457b9d;
-$success: #457b9d;
-$danger: #e63946;
-$body-bg: #133550;
-$body-color: #FFF;
-$font-family-sans-serif: 'Playfair Display';
-$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1700px);
-$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1640px);
-$enable-responsive-font-sizes: true;
-$btn-font-size: 30px;
-$btn-font-family: 'Playfair Display';
+$body-bg: #245478;
 
+$theme-colors: (
+  "info": #245478,
+  "danger": #6c8599,
+  "warning": #E2474B,
+  "primary": #6c8599
+);
 @import '~bootstrap/scss/bootstrap.scss';

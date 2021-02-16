@@ -33,21 +33,21 @@ Project Link: [https://github.com/ecetino/lazy-eye-trainer](https://github.com/e
 
 <!-- DEMO -->
 ### Demo
-Login Demo
+Login and Tabs Demo
 
-![til](./LazyEyeTrainerLogin.gif)
+![til](./EyeBrowserLoginAndTabs.gif)
 
 Keyboard Module Demo
 
-![til](./LazyEyeTrainerKeyboard.gif)
+![til](./EyeBrowserKeyboard.gif)
 
 Target Module Demo
 
-![til](./LazyEyeTrainerTarget.gif)
+![til](./EyeBrowserTargets.gif)
 
 Browser Module Demo
 
-![til](./LazyEyeTrainerBrowser.gif)
+![til](./EyeBrowserBrowser.gif)
 
 <!-- Built With -->
 ### Built With

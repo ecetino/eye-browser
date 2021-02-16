@@ -4,14 +4,14 @@ import target from '../images/target.png';
 const targets = (props) => {
   if (props.inProgress) {
     return (
-      <div className='d-block'>
+      <div style={targetsMainContainer}>
         {!props.completed &&
           <div style={aboveTargetsStyle}>
-            <button type='button' className='btn btn-primary' style={restartButtonStyle} onClick={props.reset}>Restart</button>
+            <button style={restartButtonStyle} onClick={props.reset}>Restart</button>
             <div style={timeStyle}>{Math.floor(props.time/10)}. {props.time%10} secs</div>
           </div>
         }
-        <div className='container-fluid' style={targetContainerStyle}>
+        <div style={targetContainerStyle}>
           {props.t1 &&
             <button name='t1' style={Object.assign({top: props.t1Height},target1Style)} onClick={() => { props.toggleTarget('t1') }}><img src={target} style={targetImgStyle} /></button>
           }
@@ -37,76 +37,68 @@ const targets = (props) => {
   }
 }
 
+const targetsMainContainer = {
+  display: 'flex',
+  flexDirection: 'column'
+}
+
 const timeStyle = {
-  position: 'absolute',
-  top: '25px',
-  left: '70%',
-  fontSize: '50px',
-  width: '300px'
+  fontSize: '3vw',
 }
 const aboveTargetsStyle = {
-  position: 'absolute',
-  left: '13%',
-  paddingTop: '10px',
-  width: '500px',
+  display: 'flex',
+  alignSelf: 'center'
 }
 const restartButtonStyle = {
-  position: 'relative',
-  right: '10%',
-  top: '10px',
-  width: '240px',
-  height: '100px',
-  fontSize: '40px',
-  color: 'white',
-  textShadow: '0px 1px 1px #404040'
+  fontSize: '2vw',
+  padding: '0.5vw 1.5vw',
+  color: '#000',
+  borderRadius: '4px',
+  backgroundColor: '#dcdcdc',
+  marginRight: '1.5vw',
+  alignSelf: 'center'
 }
 const targetContainerStyle = {
-  border: 'solid',
   position: 'relative',
-  top: '140px',
-  backgroundColor: '#cdcbcb',
-  borderColor: 'black',
-  width: '825px',
-  height: '575px',
-  padding: '100px 5px'
+  top: '2vh',
+  backgroundColor: '#fff',
+  borderRadius: '4px',
+  width: '57vw',
+  height: '34vw',
+  padding: '2vw 1vw 2vw 2vw'
 }
 const target1Style = {
-  backgroundColor: '#cdcbcb',
+  backgroundColor: '#fff',
   border: 'none',
   position: 'absolute',
-  left: '5px',
-  right: '0px'
+  left: '2vw',
 }
 const target2Style = {
-  backgroundColor: '#cdcbcb',
+  backgroundColor: '#fff',
   border: 'none',
   position: 'absolute',
-  left: '170px',
-  right: '00px'
+  left: '12.5vw',
 }
 const target3Style = {
-  backgroundColor: '#cdcbcb',
+  backgroundColor: '#fff',
   border: 'none',
   position: 'absolute',
-  left: '330px',
-  right: '0px'
+  left: '23vw',
 }
 const target4Style = {
-  backgroundColor: '#cdcbcb',
+  backgroundColor: '#fff',
   border: 'none',
   position: 'absolute',
-  left: '490px',
-  right: '0px'
+  left: '34vw',
 }
 const target5Style = {
-  backgroundColor: '#cdcbcb',
+  backgroundColor: '#fff',
   border: 'none',
   position: 'absolute',
-  left: '650px',
-  right: '0px'
+  left: '45vw',
 }
 const targetImgStyle = {
-  height: '150px'
+  height: '9.3vw'
 }
 
 export default targets;

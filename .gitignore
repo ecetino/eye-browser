@@ -1,5 +1,3 @@
-#images
-*.png
 
 # dependencies
 /node_modules

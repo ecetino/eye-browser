@@ -1,20 +1,20 @@
 import React from 'react';
 
-const keyboardLeaderboard =(props) => {
+const keyboardLeaderboard = (props) => {
   return (
-    <table style={tableStyle} className="table table-striped">
+    <table style={keyTableStyle} cellPadding='6'>
       <thead>
         <tr>
-          <th scope="col">Rank</th>
-          <th scope="col">Username</th>
-          <th scope="col">{props.measure}</th>
+          <td style={{ ...keyTableHeading, borderRadius: '4px 0px 0px 0px' }}>Rank</td>
+          <td style={{ ...keyTableHeading, borderRadius: '0px' }}>Username</td>
+          <td style={{ ...keyTableHeading, borderRadius: '0px 4px 0px 0px' }}>Streak</td>
         </tr>
       </thead>
       <tbody>
         {props.tableData.map((entry, rank) => {
-          return(
+          return (
             <tr key={entry._key}>
-              <th scope='row'>{rank +1 }</th>
+              <td>{rank + 1}</td>
               <td>{entry.users}</td>
               <td>{entry.streak}</td>
             </tr>
@@ -25,17 +25,22 @@ const keyboardLeaderboard =(props) => {
   )
 }
 
-const tableStyle = {
-  backgroundColor: 'silver',
-  position: 'relative',
-  top: '150px',
-  color:'black',
-  border: 'solid black 3px',
-  borderStyle: 'outset',
-  width: '250px',
+const keyTableStyle = {
+  backgroundColor: 'white',
+  color: '#444444',
   textAlign: 'center',
-  right: '10%',
-  marginLeft: '47px'
+  width: '10vw',
+  fontSize: 'clamp(1vw, 1.3vw, 4vw)',
+  fontFamily: 'Roboto',
+  fontWeight: '300',
+  borderRadius: '4px'
+}
+const keyTableHeading = {
+  fontFamily: 'Roboto',
+  fontWeight: '400',
+  color: '#000',
+  backgroundColor: '#C8E1F9',
+  padding: '0.5vw'
 }
 
 export default keyboardLeaderboard;

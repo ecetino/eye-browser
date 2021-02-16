@@ -13,6 +13,9 @@ const signUpModal = (props) => {
   function checkPasswords () {
     if (password === confirmPassword) {
       addUser();
+      setUser('');
+      setPassword('');
+      setConfirmPassword('');
     } else {
       setNotSame(true);
     }
@@ -56,12 +59,19 @@ const signUpModal = (props) => {
         {notSame &&
         <h5 className='text-danger'>Passwords are not the same.</h5>
         }
+        <button style={signUpButtonStyle} onClick={checkPasswords}>Sign Up</button>
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant='danger' onClick={checkPasswords}>Sign Up</Button>
-      </Modal.Footer>
     </Modal>
   );
+}
+
+const signUpButtonStyle = {
+  backgroundColor: '#E2474B',
+  color: 'white',
+  padding: '10px',
+  fontSize: 'clamp(20px, 1.2vw, 40px)',
+  textShadow: '1px 1px 2px #404040',
+  float: 'right'
 }
 
 export default signUpModal;

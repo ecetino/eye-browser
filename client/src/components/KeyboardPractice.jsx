@@ -1,188 +1,169 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Keyboard from './Keyboard';
-import home from '../images/home.png';
+import back from '../images/back.png';
 import KeyboardLeaderboard from './KeyboardLeaderboard';
+import faker from 'faker';
 
-const faker = require('faker');
 
-class KeyboardPractice extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      startPhrase: 'Try Typing',
-      practiceWord: 'lazyeye',
-      currentInputValue: '',
-      correct: 'no entry yet',
-      streak: 0,
-      entryResponse: '',
-      entryResponseColor: 'green',
-      caps: false,
-      nums: false,
-      keyboardOn: true
-    }
-    this.genNewPracticeWord = this.genNewPracticeWord.bind(this);
-    this.checkWord = this.checkWord.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.keyPress = this.keyPress.bind(this);
-    this.toggleKeyboardOn = this.toggleKeyboardOn.bind(this);
-  }
+const keyboardPractice = (props) => {
+  const [startPhrase, setStartPhrase] = React.useState('Try Typing');
+  const [practiceWord, setPracticeWord] = React.useState('Eye 2');
+  const [inputValue, setInputValue] = React.useState('');
+  const [correct, setCorrect] = React.useState('');
+  const [streak, setStreak] = React.useState(0);
+  const [entryResponse, setEntryResponse] = React.useState('Testing');
+  const [entryResponseColor, setEntryResponseColor] = React.useState('green');
+  const [caps, setCaps] = React.useState(false);
+  const [nums, setNums] = React.useState(false);
+  const [keyboardOn, setKeyboardOn] = React.useState(true);
 
-  keyPress(key) {
+  useEffect(() => { }, [inputValue, keyboardOn, caps, nums, entryResponse, entryResponseColor, streak, correct, startPhrase, practiceWord])
+
+  function keyPress(key) {
     if (key === 'backspace') {
-      if (this.state.currentInputValue !== '') {
-        const edit = this.state.currentInputValue.slice(0, this.state.currentInputValue.length - 1);
-        this.setState({
-          currentInputValue: edit
-        })
+      if (inputValue !== '') {
+        const edit = inputValue.slice(0, inputValue.length - 1);
+        setInputValue(edit)
       }
     } else if (key === 'exitKeyboard') {
-      this.setState({
-        keyboardOn: !this.state.keyboardOn
-      })
+      setKeyboardOn(!keyboardOn);
     } else if (key === 'capsLock') {
-      this.setState({
-        caps: !this.state.caps
-      })
+      setCaps(!caps);
     } else if (key === '123' || key === 'abc') {
-      this.setState({
-        nums: !this.state.nums
-      })
+      setNums(!nums)
     } else if (key === 'spacebar') {
-      const edit = this.state.currentInputValue += ' ';
-      this.setState({
-        currentInputValue: edit
-      })
+      const edit = inputValue + ' ';
+      setInputValue(edit);
     } else {
-      const edit = this.state.currentInputValue += key;
-      this.setState({
-        currentInputValue: edit
-      })
+      const edit = inputValue + key;
+      setInputValue(edit);
     }
   }
 
-  toggleKeyboardOn() {
-    this.setState({
-      keyboardOn: true
-    })
+  function genNewPracticeWord() {
+    const newWord = faker.commerce.department();
+    const newNum = Math.floor(Math.random() * 9);
+    const newPhrase = `${newWord} ${newNum}`;
+    setStartPhrase('Now Try');
+    setPracticeWord(newPhrase);
   }
 
-  genNewPracticeWord() {
-    const newWord = faker.commerce.department().toLowerCase();
-    this.setState({
-      startPhrase: 'Now try',
-      practiceWord: newWord,
-    })
-  }
-
-  checkWord() {
-    if (this.state.practiceWord === this.state.currentInputValue) {
-      this.genNewPracticeWord();
-      this.setState({
-        currentInputValue: '',
-        correct: true,
-        streak: this.state.streak + 1,
-        entryResponse: 'Correct!',
-        entryResponseColor: 'green',
-      })
+  function checkWord() {
+    if (practiceWord === inputValue) {
+      genNewPracticeWord();
+      setInputValue('');
+      setCorrect(true);
+      setStreak(streak + 1);
+      setEntryResponse('Correct!');
+      setEntryResponseColor('green');
     } else {
-      this.props.addKeyboardRec(this.state.streak);
-      this.props.getKeyboardRecords();
-      this.setState({
-        correct: false,
-        streak: 0,
-        entryResponse: 'Try again!',
-        entryResponseColor: 'red',
-      })
+      props.addKeyboardRec(streak);
+      props.getKeyboardRecords();
+      setCorrect(false);
+      setStreak(0);
+      setEntryResponse('Try again!');
+      setEntryResponseColor('red');
     }
   }
 
-  handleChange(event) {
-    this.setState({
-      currentInputValue: event.target.value,
-    })
-  }
-
-  render() {
-    return (
-      <div className='container-fluid' >
-        <div className='row' align='center'>
-          <div className='col-1'>
-            <div className='d-inline'>
-              <button style={homeButtonStyle} type='button' className='btn btn-secondary' onClick={() => { this.props.setPage('Home') }}><img style={homeImgStyle} src={home} /></button>
+  return (
+    <div style={keyboardPracticeContainer} >
+      <div>
+        <button style={backButtonStyle} onClick={() => { props.setModule('selection') }}><img style={backImgStyle} src={back} /></button>
+      </div>
+      <div style={containerStyle}>
+        <div style={nonKeyboardStyle}>
+          <div style={keyboardHeading}>
+            <div style={{ marginRight: '1vw' }} >
+              {startPhrase}:
+            </div>
+            <div style={{ color: '#C8E1F9' }}>
+              {practiceWord}
             </div>
           </div>
-          <div className='col-8' >
-            <div className='text-center' style={containerStyle}>
-              <div style={nonKeyboardStyle}>
-                <label>
-                  <div style={startPhrase} className='display-1'>{this.state.startPhrase}: <b style={practiceWord}>{this.state.practiceWord}</b></div>
-                  <div style={inputDivStyle}>
-                    <input style={inputStyle} className='form-control' placeholder='Press enter when complete' type='text' value={this.state.currentInputValue} onChange={this.handleChange} onClick={this.toggleKeyboardOn} />
-                    <input style={enterButtonStyle} type='button' className='btn btn-secondary' value='Enter' onClick={this.checkWord}></input>
-                  </div>
-                </label>
-                <div>
-                  <div className='h2 text-center d-inline' style={{ color: this.state.entryResponseColor }} >{this.state.entryResponse}</div>
-                  <div className='h2 text-center d-inline ml-3' >Current Streak: {this.state.streak}</div>
-                </div>
-              </div>
-              <div>
-                <Keyboard keyPress={this.keyPress} caps={this.state.caps} nums={this.state.nums} keyboardOn={this.state.keyboardOn} ></Keyboard>
-              </div >
-            </div>
+          <div style={inputDivStyle}>
+            <input style={inputStyle} placeholder='Press enter when complete' value={inputValue} onChange={(event) => { setInputValue(event.target.value) }} onClick={() => { setKeyboardOn(true) }} />
+            <button style={enterButtonStyle} onClick={checkWord}>Enter</button>
           </div>
-          <div className='col'>
-            <KeyboardLeaderboard streak={true} measure='Best Streak' tableData={this.props.keyboardTableData}></KeyboardLeaderboard>
+          <div style={streakAndResponse}>
+            <div style={{ color: entryResponseColor }} >
+              {entryResponse}
+            </div>
+            <div style={{ marginLeft: '0.5vw'}}>
+              Current Streak: {streak}
+            </div>
           </div>
         </div>
+        <div>
+          <Keyboard keyPress={keyPress} caps={caps} nums={nums} keyboardOn={keyboardOn} ></Keyboard>
+        </div >
       </div>
-    )
-  }
+      <div style={keyboardLeaderboard}>
+        <KeyboardLeaderboard tableData={props.keyboardTableData}></KeyboardLeaderboard>
+      </div>
+    </div>
+  )
 }
 
+export default keyboardPractice;
+
+const keyboardLeaderboard = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  borderRadius: '4px'
+}
+const keyboardPracticeContainer = {
+  display: 'grid',
+  gridTemplateColumns: '1fr 7fr 3fr',
+  height: '95vh',
+  width: '100vw',
+}
+const streakAndResponse = {
+  fontSize: 'clamp(1vw, 0.75vw + 1.25vh, 4vw)',
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: '1vh'
+}
 const nonKeyboardStyle = {
-  marginBottom: '20px',
-  minWidth: '900px'
+  marginLeft: '1vw'
 }
 const inputDivStyle = {
-  width: '900px'
-}
-const startPhrase = {
   textAlign: 'center'
 }
-const practiceWord = {
-  color: '#a8dadc'
+const keyboardHeading = {
+  display: 'flex',
+  fontSize: 'clamp(2vw, 5vw, 6vw)',
+  marginRight: '1vw',
+  marginBottom: '1vh'
 }
 const enterButtonStyle = {
-  display: 'inline-block',
-  padding: '6px 10px',
-  fontSize: '40px',
-  marginBottom: '18px',
+  padding: '1vw',
+  fontSize: 'clamp(1vw, 1vw + 1.5vh, 4vw)',
+  borderRadius: '4px',
+  backgroundColor: '#dcdcdc'
 }
 const inputStyle = {
   textAlign: 'center',
-  margin: '20px 20px',
-  padding: '30px 30px',
-  fontSize: '35px',
-  display: 'inline-block',
-  maxWidth: '480px'
+  marginRight: '1vw',
+  padding: '1vw',
+  fontSize: 'clamp(1vw, 1vw + 1.5vh, 4vw)',
+  borderRadius: '4px',
+  width: '35vw'
 }
 const containerStyle = {
-  align: 'center',
-  position: 'relative',
-  top: '18px'
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
 }
-const homeButtonStyle = {
-  position: 'fixed',
-  top: '0px',
-  left: '0px',
-  textAlign: 'left',
-  padding: '20px',
-  margin: '20px',
+const backButtonStyle = {
+  padding: '1vw',
+  margin: '1vw',
+  borderRadius: '4px',
+  backgroundColor: '#C8E1F9'
 }
-const homeImgStyle = {
-  width: '60px',
-  height: '60px'
+const backImgStyle = {
+  width: 'clamp(1vw, 2vw + 3vh, 6vw)',
+  height: 'clamp(1vw, 1.5vw + 3vh, 6vw)'
 }
-
-export default KeyboardPractice;

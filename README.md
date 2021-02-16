@@ -29,7 +29,7 @@ As a first step toward that goal, I created this app, Lazy Eye Trainer, with a s
 
 These modules were built with a combination of React and Bootstrap and an ArangoDB database was also used to store user logins and performance. Leaderboards were implemented across the modules to encourage continued practice and reward returning users.
 
-Project Link: [https://github.com/ecetino/lazy-eye-trainer](https://github.com/ecetino/lazy-eye-trainer)
+Project Link: [https://github.com/ecetino/eye-browser](https://github.com/ecetino/eye-browser)
 
 <!-- DEMO -->
 ### Demo
@@ -82,7 +82,7 @@ To get a local copy up and running locally please follow these simple steps.
 
 1. Clone the repo and then cd into the repo
    ```sh
-   git clone https://github.com/ecetino/lazy-eye-trainer.git
+   git clone https://github.com/ecetino/eye-browser.git
    ```
 2. Install NPM packages
    ```sh

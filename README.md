@@ -75,7 +75,8 @@ To get a local copy up and running locally please follow these simple steps.
 * ArangoDB <br/>
   [macOS Installation](https://www.arangodb.com/docs/stable/installation-mac-osx.html)
   <br/>
-  [Windows Installation](https://www.arangodb.com/docs/stable/installation-windows.html)  
+  [Windows Installation](https://www.arangodb.com/docs/stable/installation-windows.html)
+* Requires a working Webcam for eye tracking functionality
   
 <!-- INSTALLATION -->
 ### Installation and starting the project

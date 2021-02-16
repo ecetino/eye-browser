@@ -43,7 +43,7 @@ Keyboard Module Demo
 
 Target Module Demo
 
-![til](./EyeBrowserTargets.gif)
+![til](./EyBrowserTargets.gif)
 
 Browser Module Demo
 

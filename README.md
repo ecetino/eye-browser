@@ -23,9 +23,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-For this project, I built out a training application for an app I plan to create in the future called Lazy Eye. The goal of Lazy Eye is to improve accessibility by allowing users to browse the web with their eyes with the help of their webcams and an eye tracking library called WebGazer. 
+For this project, I built out a training application for an Google Chrome Extension I plan to create in the future called Eye Browser Chrome. The goal of Eye Browser is to improve accessibility by allowing users to browse the web with their eyes with the help of their webcams and an eye tracking library called WebGazer. 
 
-As a first step toward that goal, I created this app, Lazy Eye Trainer, with a series of training modules that allow the user to become accustomed to using eye tracking for cursor movement in a variety of ways. This includes a keyboard module to practice typing on a virtual keyboard with your eyes,  a target module to practice precise cursor movement,  and also a browser module that simulates a webpage and prompts the user to perform actions. Currently, I am still working on implementing the eye tracking and look forward to overcoming the barriers I will come across with the limits in accuracy of the technology.
+As a first step toward that goal, I created this training application, Eye Browser, with a series of training modules that allow the user to become accustomed to using eye tracking for cursor movement in a variety of ways. This includes a keyboard module to practice typing on a virtual keyboard with your eyes,  a target module to practice precise cursor movement,  and also a browser module that simulates a webpage and prompts the user to perform actions. Currently, the eye tracking functionality is limited and will show a red dot on the screen which is a prediction of where the user is looking.
 
 These modules were built with a combination of React and Bootstrap and an ArangoDB database was also used to store user logins and performance. Leaderboards were implemented across the modules to encourage continued practice and reward returning users.
 
@@ -100,8 +100,7 @@ To get a local copy up and running locally please follow these simple steps.
    ```sh
    npm start
    ```
-6. Go to localhost:3000 on your browser to view the training app
-
+6. Go to localhost:3000 on your browser and to allow eye tracking functionality allow camera access.
 <!-- CONTACT -->
 ## Contact
 

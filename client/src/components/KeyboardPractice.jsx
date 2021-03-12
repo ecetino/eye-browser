@@ -3,6 +3,8 @@ import Keyboard from './Keyboard';
 import back from '../images/back.png';
 import KeyboardLeaderboard from './KeyboardLeaderboard';
 import faker from 'faker';
+// using sample data for Demo
+import keyboardTableData from './sampleKeyTable'
 
 
 const keyboardPractice = (props) => {
@@ -57,8 +59,9 @@ const keyboardPractice = (props) => {
       setEntryResponse('Correct!');
       setEntryResponseColor('green');
     } else {
-      props.addKeyboardRec(streak);
-      props.getKeyboardRecords();
+      // commented out for demo
+      // props.addKeyboardRec(streak);
+      // props.getKeyboardRecords();
       setCorrect(false);
       setStreak(0);
       setEntryResponse('Try again!');
@@ -99,7 +102,9 @@ const keyboardPractice = (props) => {
         </div >
       </div>
       <div style={keyboardLeaderboard}>
-        <KeyboardLeaderboard tableData={props.keyboardTableData}></KeyboardLeaderboard>
+        {/* <KeyboardLeaderboard tableData={props.keyboardTableData}></KeyboardLeaderboard> */}
+        <KeyboardLeaderboard tableData={keyboardTableData}></KeyboardLeaderboard>
+
       </div>
     </div>
   )

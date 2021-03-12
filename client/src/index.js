@@ -6,9 +6,9 @@ webgazer.setGazeListener(function(data, elapsedTime) {
   if (data == null) {
       return;
   }
-  var xprediction = data.x;
-  var yprediction = data.y;
-  console.log(xprediction, yprediction);
+  // Commented out for Demo
+  // var xprediction = data.x;
+  // var yprediction = data.y;
 }).begin();
 
 ReactDOM.render(

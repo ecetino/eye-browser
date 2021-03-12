@@ -3,6 +3,7 @@ import Targets from './Targets'
 import back from '../images/back.png';
 import target from '../images/target.png';
 import TargetLeaderboard from './TargetLeaderboard';
+import targetTableData from './sampleTarTable';
 
 class TargetPractice extends React.Component {
   constructor(props) {
@@ -70,8 +71,8 @@ class TargetPractice extends React.Component {
   }
 
   setCompleted() {
-    this.props.addTargetRec(this.state.time);
-    this.props.getTargetRecords();
+    // this.props.addTargetRec(this.state.time);
+    // this.props.getTargetRecords();
     this.setRandPos();
     this.setState({
       completed: !this.state.completed,
@@ -147,7 +148,8 @@ class TargetPractice extends React.Component {
           <Targets startTimer={this.startTimer} ready={this.state.ready} reset={this.reset} t1={this.state.t1} t1Height={this.state.t1Height} t2={this.state.t2} t2Height={this.state.t2Height} t3={this.state.t3} t3Height={this.state.t3Height} t4={this.state.t4} t4Height={this.state.t4Height} t5={this.state.t5} t5Height={this.state.t5Height} targetsChecked={this.state.targetsChecked} toggleTarget={this.toggleTarget} completed={this.state.completed} time={this.state.time} inProgress={this.state.inProgress}></Targets>
         </div>
         <div style={targetLeaderboard}>
-          <TargetLeaderboard tableData={this.props.targetTableData}></TargetLeaderboard>
+           {/* <TargetLeaderboard tableData={this.props.targetTableData}></TargetLeaderboard> */}
+          <TargetLeaderboard tableData={targetTableData}></TargetLeaderboard>
         </div>
       </div>
     )

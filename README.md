@@ -30,7 +30,9 @@ As a first step toward that goal, I created this training application, Eye Brows
 These modules were built with a combination of React and Bootstrap and an ArangoDB database was also used to store user logins and performance. Leaderboards were implemented across the modules to encourage continued practice and reward returning users.
 
 Project Link: [https://github.com/ecetino/eye-browser](https://github.com/ecetino/eye-browser)
+
 Demo Link: [https://eye-browser-git-master-ecetino.vercel.app/](https://eye-browser-git-master-ecetino.vercel.app/)
+
 <!-- DEMO -->
 ### Demo
 Login and Tabs Demo
@@ -64,6 +66,7 @@ Browser Module Demo
 ## Getting Started
 
 To get a local copy up and running locally please follow these simple steps.
+
 Or you could view my demo here: [https://eye-browser-git-master-ecetino.vercel.app/](https://eye-browser-git-master-ecetino.vercel.app/)
 
 <!-- PREREQUISITES -->

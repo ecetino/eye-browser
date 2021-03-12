@@ -31,7 +31,7 @@ These modules were built with a combination of React and Bootstrap and an Arango
 
 Project Link: [https://github.com/ecetino/eye-browser](https://github.com/ecetino/eye-browser)
 
-Demo Link: [https://eye-browser-git-master-ecetino.vercel.app/](https://eye-browser-git-master-ecetino.vercel.app/)
+Demo Link (not optimized for mobile): [https://eye-browser-git-master-ecetino.vercel.app/](https://eye-browser-git-master-ecetino.vercel.app/)
 
 <!-- DEMO -->
 ### Demo
@@ -67,7 +67,7 @@ Browser Module Demo
 
 To get a local copy up and running locally please follow these simple steps.
 
-Or you could view my demo here: [https://eye-browser-git-master-ecetino.vercel.app/](https://eye-browser-git-master-ecetino.vercel.app/)
+Or you could view my demo here (not optimized for mobile): [https://eye-browser-git-master-ecetino.vercel.app/](https://eye-browser-git-master-ecetino.vercel.app/)
 
 <!-- PREREQUISITES -->
 ### Prerequisites

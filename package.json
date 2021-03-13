@@ -1,7 +1,7 @@
 {
-  "name": "lazy-eye-trainer",
+  "name": "eye-browser",
   "version": "1.0.0",
-  "description": "Trainer for Lazy Eye",
+  "description": "Trainer for Eye-browser",
   "main": "index.js",
   "dependencies": {
     "arangojs": "^5.8.0",

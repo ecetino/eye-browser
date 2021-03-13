@@ -13,8 +13,9 @@ const app = (props) => {
   const [targetRecs, setTargetRecs] = React.useState([]);
 
   useEffect(() => {
-    getKeyboardRecords();
-    getTargetRecords();
+    // commented out for Demo
+    // getKeyboardRecords();
+    // getTargetRecords();
   }, [])
 
   useEffect(() => {}, [user, password, view, keyboardRecs, targetRecs])
